@@ -30,7 +30,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-lg shadow-lg'
-          : 'bg-white/10 backdrop-blur-sm'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,10 +38,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/lovable-uploads/eabb85e5-70d5-4d15-8c3e-5b432bc2cfd9.png"
+              src="/lovable-uploads/6e599f6c-279d-45ae-bdc2-fd6a63de5a51.png"
               alt="Himalayan Ape"
               className="h-12 w-auto object-contain"
-              style={{ filter: 'brightness(0) saturate(100%)' }}
             />
           </Link>
 
@@ -53,13 +52,19 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-300 relative ${
                   location.pathname === link.path
-                    ? 'text-black font-bold scale-110'
-                    : 'text-gray-700 hover:text-black hover:scale-105'
+                    ? isScrolled 
+                      ? 'text-blue-600 font-bold scale-110'
+                      : 'text-white font-bold scale-110'
+                    : isScrolled
+                    ? 'text-gray-700 hover:text-blue-600 hover:scale-105'
+                    : 'text-white/80 hover:text-white hover:scale-105'
                 }`}
               >
                 {link.name}
                 {location.pathname === link.path && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></div>
+                  <div className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                    isScrolled ? 'bg-blue-600' : 'bg-white'
+                  }`}></div>
                 )}
               </Link>
             ))}
@@ -69,7 +74,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-md text-black hover:bg-gray-100"
+              className={`p-2 rounded-md transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+              }`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
