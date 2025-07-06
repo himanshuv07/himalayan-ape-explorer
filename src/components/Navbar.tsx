@@ -38,13 +38,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="https://source.unsplash.com/100x60/?logo,mountain"
+              src="/lovable-uploads/8187a810-0e74-45cd-a3a0-528194c65e1c.png"
               alt="Himalayan Ape"
-              className="h-10 w-auto rounded-lg"
+              className="h-12 w-auto"
             />
-            <span className="font-bold text-xl text-gray-800">
-              Himalayan Ape
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,12 +50,12 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-blue-600 ${
+                className={`text-sm font-medium transition-all duration-300 ${
                   location.pathname === link.path
-                    ? 'text-blue-600 border-b-2 border-blue-600'
+                    ? 'text-blue-600 border-b-2 border-blue-600 opacity-100'
                     : isScrolled
-                    ? 'text-gray-700'
-                    : 'text-white'
+                    ? 'text-gray-400 hover:text-blue-600 opacity-60 hover:opacity-100'
+                    : 'text-white/60 hover:text-white opacity-60 hover:opacity-100'
                 }`}
               >
                 {link.name}

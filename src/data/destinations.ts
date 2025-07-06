@@ -3,151 +3,151 @@ export const internationalDestinations = [
   {
     id: 1,
     name: "Dubai",
-    image: "https://source.unsplash.com/400x300/?dubai,travel",
-    description: "Experience luxury and adventure in the city of gold with stunning architecture and desert safaris.",
-    price: "₹45,000",
-    duration: "5 Days 4 Nights"
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience luxury and modern marvels in the heart of UAE with stunning architecture and world-class shopping.",
+    price: "₹85,000",
+    duration: "5 Days"
   },
   {
     id: 2,
     name: "Singapore",
-    image: "https://source.unsplash.com/400x300/?singapore,travel",
-    description: "Discover the Garden City with its futuristic skyline and multicultural experiences.",
-    price: "₹55,000",
-    duration: "6 Days 5 Nights"
+    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Discover the Garden City with its perfect blend of cultures, cuisine, and futuristic attractions.",
+    price: "₹75,000",
+    duration: "4 Days"
   },
   {
     id: 3,
     name: "Bali",
-    image: "https://source.unsplash.com/400x300/?bali,travel",
-    description: "Find paradise in Bali with pristine beaches, temples, and lush rice terraces.",
-    price: "₹40,000",
-    duration: "7 Days 6 Nights"
+    image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Immerse yourself in tropical paradise with beautiful beaches, temples, and vibrant culture.",
+    price: "₹65,000",
+    duration: "6 Days"
   },
   {
     id: 4,
     name: "Thailand",
-    image: "https://source.unsplash.com/400x300/?thailand,travel",
-    description: "Explore the Land of Smiles with exotic beaches, temples, and vibrant street life.",
-    price: "₹35,000",
-    duration: "6 Days 5 Nights"
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Explore exotic beaches, ancient temples, and bustling markets in the Land of Smiles.",
+    price: "₹55,000",
+    duration: "7 Days"
   },
   {
     id: 5,
     name: "Maldives",
-    image: "https://source.unsplash.com/400x300/?maldives,travel",
-    description: "Escape to paradise with crystal clear waters and overwater bungalows.",
-    price: "₹85,000",
-    duration: "5 Days 4 Nights"
+    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Relax in overwater bungalows surrounded by crystal-clear waters and pristine coral reefs.",
+    price: "₹1,50,000",
+    duration: "5 Days"
   },
   {
     id: 6,
     name: "Bhutan",
-    image: "https://source.unsplash.com/400x300/?bhutan,travel",
-    description: "Discover the Last Shangri-La with monasteries, mountains, and pristine nature.",
-    price: "₹65,000",
-    duration: "8 Days 7 Nights"
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Journey to the Last Shangri-La with pristine mountains, monasteries, and unique culture.",
+    price: "₹95,000",
+    duration: "8 Days"
   }
 ];
 
 export const domesticDestinations = [
   {
-    id: 1,
+    id: 7,
     name: "Shimla",
-    image: "https://source.unsplash.com/400x300/?shimla,mountains",
-    description: "The Queen of Hills offering colonial charm and breathtaking mountain views.",
-    price: "₹15,000",
-    duration: "4 Days 3 Nights"
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience the charm of the Queen of Hills with colonial architecture and scenic beauty.",
+    price: "₹25,000",
+    duration: "4 Days"
   },
   {
-    id: 2,
+    id: 8,
     name: "Manali",
-    image: "https://source.unsplash.com/400x300/?manali,snow",
-    description: "Adventure capital with snow-capped peaks and valley views.",
-    price: "₹18,000",
-    duration: "5 Days 4 Nights"
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Adventure awaits in the Valley of Gods with snow-capped peaks and thrilling activities.",
+    price: "₹30,000",
+    duration: "5 Days"
   },
   {
-    id: 3,
+    id: 9,
     name: "Kasol",
-    image: "https://source.unsplash.com/400x300/?kasol,valley",
-    description: "Mini Israel in India with stunning Parvati Valley landscapes.",
-    price: "₹12,000",
-    duration: "4 Days 3 Nights"
+    image: "https://images.unsplash.com/photo-1486022338407-f8618204c50d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Discover the mini Israel of India nestled in the beautiful Parvati Valley.",
+    price: "₹20,000",
+    duration: "3 Days"
   },
   {
-    id: 4,
+    id: 10,
     name: "Dharamshala",
-    image: "https://source.unsplash.com/400x300/?dharamshala,tibet",
-    description: "Home of the Dalai Lama with Tibetan culture and mountain beauty.",
-    price: "₹14,000",
-    duration: "4 Days 3 Nights"
+    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Find peace in the home of Dalai Lama with stunning mountain views and Tibetan culture.",
+    price: "₹28,000",
+    duration: "4 Days"
   },
   {
-    id: 5,
+    id: 11,
     name: "Rishikesh",
-    image: "https://source.unsplash.com/400x300/?rishikesh,ganga",
-    description: "Yoga capital of the world on the banks of holy Ganges.",
-    price: "₹10,000",
-    duration: "3 Days 2 Nights"
+    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience spiritual awakening and adventure sports in the Yoga Capital of the World.",
+    price: "₹22,000",
+    duration: "3 Days"
   },
   {
-    id: 6,
+    id: 12,
     name: "Nainital",
-    image: "https://source.unsplash.com/400x300/?nainital,lake",
-    description: "Beautiful lake city nestled in the Kumaon hills.",
-    price: "₹13,000",
-    duration: "4 Days 3 Nights"
+    image: "https://images.unsplash.com/photo-1506729623306-b5a934d88b53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Enjoy serene lake views and pleasant weather in this charming hill station.",
+    price: "₹24,000",
+    duration: "4 Days"
   }
 ];
 
 export const religiousDestinations = [
   {
-    id: 1,
+    id: 13,
     name: "Kedarnath",
-    image: "https://source.unsplash.com/400x300/?kedarnath,temple",
-    description: "Sacred Jyotirlinga temple in the lap of snow-capped Himalayas.",
-    price: "₹20,000",
-    duration: "6 Days 5 Nights"
+    image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Embark on a sacred pilgrimage to one of the twelve Jyotirlingas of Lord Shiva.",
+    price: "₹35,000",
+    duration: "6 Days"
   },
   {
-    id: 2,
+    id: 14,
     name: "Badrinath",
-    image: "https://source.unsplash.com/400x300/?badrinath,temple",
-    description: "Holy shrine of Lord Vishnu in the Garhwal Himalayas.",
-    price: "₹18,000",
-    duration: "5 Days 4 Nights"
+    image: "https://images.unsplash.com/photo-1626619876325-5ba12e7b6d9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Visit the sacred abode of Lord Vishnu nestled in the Garhwal Himalayas.",
+    price: "₹32,000",
+    duration: "5 Days"
   },
   {
-    id: 3,
+    id: 15,
     name: "Haridwar",
-    image: "https://source.unsplash.com/400x300/?haridwar,ganga",
-    description: "Gateway to Gods with evening Ganga Aarti ceremonies.",
-    price: "₹8,000",
-    duration: "3 Days 2 Nights"
+    image: "https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Witness the spiritual essence of India at the gateway to the gods on River Ganges.",
+    price: "₹18,000",
+    duration: "3 Days"
   },
   {
-    id: 4,
+    id: 16,
     name: "Gangotri",
-    image: "https://source.unsplash.com/400x300/?gangotri,glacier",
-    description: "Source of holy Ganges with pristine glacial beauty.",
-    price: "₹16,000",
-    duration: "5 Days 4 Nights"
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Journey to the origin of the holy River Ganges in the pristine Garhwal Himalayas.",
+    price: "₹38,000",
+    duration: "7 Days"
   },
   {
-    id: 5,
+    id: 17,
+    name: "Yamunotri",
+    image: "https://images.unsplash.com/photo-1626951040629-0e2e4b9d3e2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Seek blessings at the source of River Yamuna in the divine Himalayan setting.",
+    price: "₹36,000",
+    duration: "6 Days"
+  },
+  {
+    id: 18,
     name: "Kainchi Dham",
-    image: "https://source.unsplash.com/400x300/?kainchi,temple",
-    description: "Sacred temple of Neem Karoli Baba in serene hills.",
-    price: "₹12,000",
-    duration: "3 Days 2 Nights"
-  },
-  {
-    id: 6,
-    name: "Kailash Darshan",
-    image: "https://source.unsplash.com/400x300/?kailash,mountain",
-    description: "Spiritual journey to the abode of Lord Shiva.",
-    price: "₹85,000",
-    duration: "12 Days 11 Nights"
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Visit the blessed ashram of Neem Karoli Baba surrounded by serene hills.",
+    price: "₹15,000",
+    duration: "2 Days"
   }
 ];

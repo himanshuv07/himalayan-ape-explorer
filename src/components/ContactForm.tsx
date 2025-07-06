@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -30,7 +29,7 @@ const ContactForm = () => {
       email: '',
       travelDates: '',
       destination: '',
-      personer: '1'
+      persons: '1'
     });
   };
 
