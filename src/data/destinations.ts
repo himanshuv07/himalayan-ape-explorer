@@ -27,7 +27,7 @@ export const internationalDestinations = [
   {
     id: 4,
     name: "Thailand",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Explore exotic beaches, ancient temples, and bustling markets in the Land of Smiles.",
     price: "₹55,000",
     duration: "7 Days"
@@ -54,7 +54,7 @@ export const domesticDestinations = [
   {
     id: 7,
     name: "Shimla",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Experience the charm of the Queen of Hills with colonial architecture and scenic beauty.",
     price: "₹25,000",
     duration: "4 Days"
@@ -129,7 +129,7 @@ export const religiousDestinations = [
   {
     id: 16,
     name: "Gangotri",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Journey to the origin of the holy River Ganges in the pristine Garhwal Himalayas.",
     price: "₹38,000",
     duration: "7 Days"
@@ -145,7 +145,7 @@ export const religiousDestinations = [
   {
     id: 18,
     name: "Kainchi Dham",
-    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Visit the blessed ashram of Neem Karoli Baba surrounded by serene hills.",
     price: "₹15,000",
     duration: "2 Days"

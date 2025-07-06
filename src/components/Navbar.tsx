@@ -29,8 +29,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-lg shadow-lg'
-          : 'bg-transparent'
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg'
+          : 'bg-white/10 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,9 +38,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/lovable-uploads/8187a810-0e74-45cd-a3a0-528194c65e1c.png"
+              src="/lovable-uploads/eabb85e5-70d5-4d15-8c3e-5b432bc2cfd9.png"
               alt="Himalayan Ape"
-              className="h-12 w-auto"
+              className="h-12 w-auto object-contain"
+              style={{ filter: 'brightness(0) saturate(100%)' }}
             />
           </Link>
 
@@ -50,15 +51,16 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-all duration-300 ${
+                className={`text-sm font-medium transition-all duration-300 relative ${
                   location.pathname === link.path
-                    ? 'text-blue-600 border-b-2 border-blue-600 opacity-100'
-                    : isScrolled
-                    ? 'text-gray-400 hover:text-blue-600 opacity-60 hover:opacity-100'
-                    : 'text-white/60 hover:text-white opacity-60 hover:opacity-100'
+                    ? 'text-black font-bold scale-110'
+                    : 'text-gray-700 hover:text-black hover:scale-105'
                 }`}
               >
                 {link.name}
+                {location.pathname === link.path && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></div>
+                )}
               </Link>
             ))}
           </div>
@@ -67,9 +69,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-md ${
-                isScrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="p-2 rounded-md text-black hover:bg-gray-100"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -87,7 +87,7 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     location.pathname === link.path
-                      ? 'text-blue-600 bg-blue-50'
+                      ? 'text-blue-600 bg-blue-50 font-bold'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                   }`}
                 >
