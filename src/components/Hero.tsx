@@ -34,17 +34,6 @@ const Hero = () => {
           <TrustIndicators />
         </div>
       </div>
-
-      {/* Award Badge */}
-      <div className="absolute top-4 right-4 bg-green-600 text-white p-3 rounded-lg shadow-lg z-20">
-        <div className="text-center">
-          <div className="text-xs font-bold">Best</div>
-          <div className="text-xs">Holiday</div>
-          <div className="text-xs">Brand</div>
-          <div className="text-xs">in India</div>
-          <div className="text-lg">🏆</div>
-        </div>
-      </div>
     </div>
   );
 };
