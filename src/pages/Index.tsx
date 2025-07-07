@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Hero from '../components/Hero';
+import GenreSelection from '../components/GenreSelection';
 import DestinationGrid from '../components/DestinationGrid';
 import { internationalDestinations, domesticDestinations, religiousDestinations } from '../data/destinations';
 
@@ -9,23 +10,26 @@ const Index = () => {
     <div>
       <Hero />
       
+      {/* Genre Selection */}
+      <GenreSelection />
+
       {/* Featured International Destinations */}
       <DestinationGrid
-        destinations={internationalDestinations.slice(0, 3)}
+        destinations={internationalDestinations.slice(0, 6)}
         title="International Adventures"
         subtitle="Discover breathtaking destinations around the world"
       />
 
       {/* Featured Domestic Destinations */}
       <DestinationGrid
-        destinations={domesticDestinations.slice(0, 3)}
+        destinations={domesticDestinations.slice(0, 6)}
         title="Domestic Escapes"
         subtitle="Explore the incredible beauty of India"
       />
 
       {/* Featured Religious Destinations */}
       <DestinationGrid
-        destinations={religiousDestinations.slice(0, 3)}
+        destinations={religiousDestinations.slice(0, 6)}
         title="Spiritual Journeys"
         subtitle="Find peace and spirituality in sacred destinations"
       />
