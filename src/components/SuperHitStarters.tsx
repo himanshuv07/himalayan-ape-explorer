@@ -1,11 +1,18 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
 import { Star, MapPin, Calendar, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const SuperHitStarters = () => {
+  const navigate = useNavigate();
+
+  const handleShortlist = (packageTitle: string) => {
+    // Navigate to contact page or show a toast
+    navigate('/contact');
+  };
+
   const packages = [
     {
       id: 1,
@@ -79,14 +86,6 @@ const SuperHitStarters = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-gray-900">SUPER HIT STARTERS</h2>
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors">
-              <span className="text-sm">❮</span>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors">
-              <span className="text-sm">❯</span>
-            </div>
-          </div>
         </div>
 
         <Carousel className="w-full">
@@ -144,7 +143,10 @@ const SuperHitStarters = () => {
                       </div>
                     </div>
 
-                    <button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    <button 
+                      onClick={() => handleShortlist(pkg.title)}
+                      className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer"
+                    >
                       Shortlist Trip
                     </button>
                   </CardContent>

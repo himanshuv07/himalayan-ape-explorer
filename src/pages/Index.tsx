@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Hero from '../components/Hero';
-import GenreSelection from '../components/GenreSelection';
 import SuperHitStarters from '../components/SuperHitStarters';
 import VideoTestimonials from '../components/VideoTestimonials';
 import BudgetSection from '../components/BudgetSection';
@@ -43,7 +42,6 @@ const Index = () => {
   return (
     <div>
       <Hero />
-      <GenreSelection />
       <SuperHitStarters />
       <VideoTestimonials />
       <BudgetSection />

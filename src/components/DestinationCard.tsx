@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface Destination {
   id: number;
@@ -16,6 +17,12 @@ interface DestinationCardProps {
 }
 
 const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    navigate('/international');
+  };
+
   return (
     <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
       {/* Image Container */}
@@ -49,7 +56,10 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
         </p>
 
         {/* CTA Button */}
-        <button className="group/btn w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-300 transform hover:shadow-lg">
+        <button 
+          onClick={handleExplore}
+          className="group/btn w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-300 transform hover:shadow-lg cursor-pointer"
+        >
           Explore Now
           <ArrowRight className="ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" size={16} />
         </button>
