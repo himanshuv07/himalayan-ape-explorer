@@ -68,7 +68,7 @@ const FanbookTestimonials = () => {
                   <h3 className="text-2xl font-bold mb-2">Travel the world like</h3>
                   <div className="text-4xl font-bold text-yellow-400 mb-6">NEERAJ</div>
                   <a
-                    href="https://www.youtube.com/@himalayanape01/featured"
+                    href="https://www.youtube.com/@himalayanape01/shorts"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105"

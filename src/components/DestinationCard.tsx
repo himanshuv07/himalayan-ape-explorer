@@ -20,7 +20,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
   const navigate = useNavigate();
 
   const handleExplore = () => {
-    navigate('/international');
+    navigate('/contact');
   };
 
   return (

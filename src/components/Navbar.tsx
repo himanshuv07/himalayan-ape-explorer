@@ -52,10 +52,10 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                   location.pathname === link.path
-                    ? 'bg-white text-black font-bold scale-110'
+                    ? 'bg-black text-white font-bold scale-110 shadow-lg'
                     : isScrolled
-                    ? 'text-gray-700 hover:bg-white hover:text-black hover:scale-105'
-                    : 'text-white/80 hover:bg-white hover:text-black hover:scale-105'
+                    ? 'text-gray-700 hover:bg-black hover:text-white hover:scale-105 hover:shadow-md'
+                    : 'text-white/80 hover:bg-black hover:text-white hover:scale-105 hover:shadow-md'
                 }`}
               >
                 {link.name}

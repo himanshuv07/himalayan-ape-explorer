@@ -144,10 +144,16 @@ const SuperHitStarters = () => {
                     </div>
 
                     <button 
-                      onClick={() => handleShortlist(pkg.title)}
+                      onClick={() => {
+                        if (pkg.title.includes('Dubai') || pkg.title.includes('Singapore') || pkg.title.includes('Thailand') || pkg.title.includes('Turkey')) {
+                          navigate('/international');
+                        } else {
+                          navigate('/domestic');
+                        }
+                      }}
                       className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer"
                     >
-                      Shortlist Trip
+                      Explore Trip
                     </button>
                   </CardContent>
                 </Card>

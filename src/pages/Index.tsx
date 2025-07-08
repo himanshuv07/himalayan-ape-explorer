@@ -45,9 +45,6 @@ const Index = () => {
     <div>
       <Hero />
       <SuperHitStarters />
-      <InstagramHighlights />
-      <FanbookTestimonials />
-      <VideoTestimonials />
       <BudgetSection />
       
       {/* Destination Sections */}
@@ -70,6 +67,11 @@ const Index = () => {
         title="SCANDINAVIA" 
         destinations={scandinaviaDestinations}
       />
+
+      {/* Bottom Sections */}
+      <VideoTestimonials />
+      <FanbookTestimonials />
+      <InstagramHighlights />
 
       {/* Call to Action Section */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
