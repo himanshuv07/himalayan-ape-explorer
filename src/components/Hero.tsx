@@ -22,7 +22,7 @@ const Hero = () => {
   }, [backgroundImages.length]);
 
   return (
-    <div className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+    <div className="relative h-[100vh] flex items-center justify-center overflow-hidden">
       {/* Background Image Slider */}
       {backgroundImages.map((image, index) => (
         <div

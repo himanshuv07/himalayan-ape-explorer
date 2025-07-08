@@ -18,7 +18,7 @@ const TrustIndicators = () => {
     },
     {
       icon: <Headphones className="text-green-500" size={20} />,
-      text: "24x7 Concierge",
+      text: "24x7 Help & Support",
     },
   ];
 

@@ -10,13 +10,15 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 10 || location.pathname !== '/');
     };
-
+  
+    handleScroll(); // Trigger once on page load / route change
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  }, [location]);
+  
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'International', path: '/international' },
@@ -40,7 +42,7 @@ const Navbar = () => {
             <img
               src="/lovable-uploads/b7f1b3b5-cf5c-41a8-9329-01957fa452b8.png"
               alt="Himalayan Ape"
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain "
             />
           </Link>
 
@@ -52,11 +54,15 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                   location.pathname === link.path
-                    ? 'bg-black text-white font-bold scale-110 shadow-lg'
+                    ? isScrolled
+                      ? 'text-gray-700 hover:scale-105 hover:shadow-md'
+                      : link.path === '/' 
+                        ? 'text-white hover:scale-105 hover:shadow-md'
+                        : 'text-white/80 hover:scale-105 hover:shadow-md'
                     : isScrolled
-                    ? 'text-gray-700 hover:bg-black hover:text-white hover:scale-105 hover:shadow-md'
-                    : 'text-white/80 hover:bg-black hover:text-white hover:scale-105 hover:shadow-md'
-                }`}
+                    ? 'text-gray-700 hover:scale-105 hover:shadow-md'
+                    : 'text-white/80 hover:scale-105 hover:shadow-md'
+                }`}                
               >
                 {link.name}
                 {location.pathname === link.path && (
