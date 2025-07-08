@@ -97,7 +97,7 @@ const SuperHitStarters = () => {
                     <img
                       src={pkg.image}
                       alt={pkg.title}
-                      className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <Badge className={`absolute top-3 left-3 ${
                       pkg.badge === 'BEST DEAL' ? 'bg-red-500' :

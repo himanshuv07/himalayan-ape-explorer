@@ -38,9 +38,9 @@ const DestinationCarousel: React.FC<DestinationCarouselProps> = ({ title, destin
               <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <div 
                   onClick={() => handleDestinationClick(destination.name)}
-                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+                  className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     <img
                       src={destination.image}
                       alt={destination.name}

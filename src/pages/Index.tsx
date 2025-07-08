@@ -5,6 +5,8 @@ import SuperHitStarters from '../components/SuperHitStarters';
 import VideoTestimonials from '../components/VideoTestimonials';
 import BudgetSection from '../components/BudgetSection';
 import DestinationCarousel from '../components/DestinationCarousel';
+import InstagramHighlights from '../components/InstagramHighlights';
+import FanbookTestimonials from '../components/FanbookTestimonials';
 
 const Index = () => {
   const middleEastDestinations = [
@@ -43,6 +45,8 @@ const Index = () => {
     <div>
       <Hero />
       <SuperHitStarters />
+      <InstagramHighlights />
+      <FanbookTestimonials />
       <VideoTestimonials />
       <BudgetSection />
       

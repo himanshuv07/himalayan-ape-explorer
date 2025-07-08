@@ -50,14 +50,12 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-all duration-300 relative ${
+                className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                   location.pathname === link.path
-                    ? isScrolled 
-                      ? 'text-blue-600 font-bold scale-110'
-                      : 'text-white font-bold scale-110'
+                    ? 'bg-white text-black font-bold scale-110'
                     : isScrolled
-                    ? 'text-gray-700 hover:text-blue-600 hover:scale-105'
-                    : 'text-white/80 hover:text-white hover:scale-105'
+                    ? 'text-gray-700 hover:bg-white hover:text-black hover:scale-105'
+                    : 'text-white/80 hover:bg-white hover:text-black hover:scale-105'
                 }`}
               >
                 {link.name}
