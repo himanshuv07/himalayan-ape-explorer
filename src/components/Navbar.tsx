@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,9 +41,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/lovable-uploads/b7f1b3b5-cf5c-41a8-9329-01957fa452b8.png"
+              src={logo}
               alt="Himalayan Ape"
-              className="h-12 w-auto object-contain "
+              className="h-16 w-auto object-contain "
             />
           </Link>
 

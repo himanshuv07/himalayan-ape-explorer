@@ -33,7 +33,7 @@ Number of Persons: ${formData.persons}
 Please contact me for more details about this trip.`;
 
     // Send to WhatsApp
-    const whatsappNumber = '917909674407';
+    const whatsappNumber = '917275223319';
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
