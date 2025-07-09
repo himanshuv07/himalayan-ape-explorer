@@ -1,119 +1,217 @@
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { ExternalLink, Play, Heart, MessageCircle, Send, Bookmark } from 'lucide-react';
 
 const InstagramHighlights = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
   const highlights = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "CHANDRATAL",
-      subtitle: "Altitude - 14,100 ft",
+      video: "https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4",
+      title: "Mountain Adventure",
+      subtitle: "Himalayan Trek - 14,100 ft",
       likes: "105,148",
-      username: "kailashrathreks"
+      comments: "2,847",
+      username: "himalayanape"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Lucky Ali - Safarnama",
-      likes: "669,028",
-      username: "kailashrathreks"
+      video: "https://videos.pexels.com/video-files/2499611/2499611-uhd_2560_1440_30fps.mp4",
+      title: "Sunrise in Mountains",
+      subtitle: "Golden hour moments",
+      likes: "89,425",
+      comments: "1,923",
+      username: "himalayanape"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Adele - Skyfall",
-      subtitle: "starting the trek for summit",
-      likes: "33,817",
-      username: "kailashrathreks"
+      video: "https://videos.pexels.com/video-files/3571089/3571089-uhd_2560_1440_30fps.mp4",
+      title: "River Valley Trek",
+      subtitle: "Nature's symphony",
+      likes: "76,382",
+      comments: "1,456",
+      username: "himalayanape"
+    },
+    {
+      id: 4,
+      video: "https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4",
+      title: "Wildlife Encounter",
+      subtitle: "Rare mountain wildlife",
+      likes: "94,567",
+      comments: "3,142",
+      username: "himalayanape"
+    },
+    {
+      id: 5,
+      video: "https://videos.pexels.com/video-files/2499608/2499608-uhd_2560_1440_30fps.mp4",
+      title: "Camping Under Stars",
+      subtitle: "Night sky magic",
+      likes: "67,891",
+      comments: "987",
+      username: "himalayanape"
+    },
+    {
+      id: 6,
+      video: "https://videos.pexels.com/video-files/3571077/3571077-uhd_2560_1440_30fps.mp4",
+      title: "Mountain Lake",
+      subtitle: "Crystal clear waters",
+      likes: "83,245",
+      comments: "2,156",
+      username: "himalayanape"
     }
   ];
 
+  const handleCardClick = () => {
+    window.open('https://www.instagram.com/himalayanape/', '_blank');
+  };
+
   return (
-    <div className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Instagram Highlight</h2>
-            <p className="text-gray-600">Discover the world with our curated list of upcoming trips.</p>
+    <div className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-xl">H</span>
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                @himalayanape
+              </h2>
+              <p className="text-gray-600 flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                Adventure Travel • Mountain Expeditions
+              </p>
+            </div>
           </div>
-          <div className="flex space-x-2">
-            <button className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors flex items-center justify-center">
-              ←
-            </button>
-            <button className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors flex items-center justify-center">
-              →
-            </button>
-          </div>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Discover breathtaking adventures and mountain expeditions through our Instagram highlights
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Instagram Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {highlights.map((highlight) => (
-            <div key={highlight.id} className="group relative bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="relative h-96 overflow-hidden">
-                <img
-                  src={highlight.image}
-                  alt={highlight.title}
+            <div
+              key={highlight.id}
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+              onMouseEnter={() => setHoveredCard(highlight.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+              onClick={handleCardClick}
+              style={{
+                transform: hoveredCard === highlight.id ? 'rotateY(5deg) rotateX(5deg)' : 'rotateY(0deg) rotateX(0deg)',
+                transformStyle: 'preserve-3d',
+                perspective: '1000px'
+              }}
+            >
+              {/* Video Container */}
+              <div className="relative h-80 overflow-hidden">
+                <video
+                  src={highlight.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
-                {/* Instagram-style overlay */}
-                <div className="absolute top-4 left-4 right-4">
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+                
+                {/* Instagram Header */}
+                <div className="absolute top-4 left-4 right-4 z-10">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">M</span>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center ring-2 ring-white">
+                        <span className="text-white font-bold text-sm">H</span>
                       </div>
-                      <span className="text-white font-semibold">{highlight.username}</span>
-                      <span className="text-blue-400 text-sm">✓</span>
+                      <div>
+                        <span className="text-white font-semibold text-sm">{highlight.username}</span>
+                        <div className="flex items-center space-x-1">
+                          <span className="text-blue-400 text-xs">✓</span>
+                          <span className="text-gray-300 text-xs">• Following</span>
+                        </div>
+                      </div>
                     </div>
-                    <button 
-                      onClick={() => window.open('https://www.instagram.com/himalayanape/', '_blank')}
-                      className="bg-blue-500 text-white px-3 py-1 rounded text-sm font-semibold hover:bg-blue-600 transition-colors"
-                    >
-                      View profile
+                    <button className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
+                      Follow
                     </button>
                   </div>
                 </div>
 
-                {/* Content overlay */}
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="font-bold text-lg">{highlight.title}</h3>
-                  {highlight.subtitle && (
-                    <p className="text-sm opacity-90">{highlight.subtitle}</p>
-                  )}
+                {/* Content Overlay */}
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="font-bold text-lg mb-1">{highlight.title}</h3>
+                  <p className="text-sm opacity-90 mb-3">{highlight.subtitle}</p>
                 </div>
 
-                {/* Instagram icons */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <ExternalLink className="w-6 h-6 text-white" />
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-6 h-6 text-white ml-1" />
                   </div>
                 </div>
+
+                {/* 3D Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              {/* Instagram-style bottom section */}
+              {/* Instagram Actions */}
               <div className="p-4 bg-white">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-4">
-                    <button className="hover:scale-110 transition-transform">❤️</button>
-                    <button className="hover:scale-110 transition-transform">💬</button>
-                    <button className="hover:scale-110 transition-transform">📤</button>
+                    <button className="hover:scale-125 transition-transform duration-200">
+                      <Heart className="w-6 h-6 text-gray-700 hover:text-red-500 transition-colors" />
+                    </button>
+                    <button className="hover:scale-125 transition-transform duration-200">
+                      <MessageCircle className="w-6 h-6 text-gray-700 hover:text-blue-500 transition-colors" />
+                    </button>
+                    <button className="hover:scale-125 transition-transform duration-200">
+                      <Send className="w-6 h-6 text-gray-700 hover:text-green-500 transition-colors" />
+                    </button>
                   </div>
-                  <button className="hover:scale-110 transition-transform">🔖</button>
+                  <button className="hover:scale-125 transition-transform duration-200">
+                    <Bookmark className="w-6 h-6 text-gray-700 hover:text-purple-500 transition-colors" />
+                  </button>
                 </div>
-                <p className="font-semibold text-sm text-gray-800">{highlight.likes} likes</p>
-                <a 
-                  href="https://www.instagram.com/himalayanape/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-500 text-sm hover:underline"
+                
+                <div className="space-y-1">
+                  <p className="font-semibold text-sm text-gray-800">
+                    {highlight.likes} likes
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    View all {highlight.comments} comments
+                  </p>
+                </div>
+                
+                <button 
+                  onClick={handleCardClick}
+                  className="text-blue-500 text-sm hover:text-blue-600 transition-colors font-medium mt-2 flex items-center space-x-1"
                 >
-                  View more on Instagram
-                </a>
+                  <span>View on Instagram</span>
+                  <ExternalLink className="w-3 h-3" />
+                </button>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Instagram Profile Link */}
+        <div className="text-center mt-12">
+          <button
+            onClick={handleCardClick}
+            className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <ExternalLink className="w-5 h-5" />
+            <span>Follow @himalayanape on Instagram</span>
+          </button>
         </div>
       </div>
     </div>
