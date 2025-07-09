@@ -71,7 +71,9 @@ const Navbar = () => {
                   onClick={link.onClick}
                   className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                     location.pathname === link.path
-                      ? 'text-white bg-black hover:bg-gray-800 shadow-lg'
+                      ? isScrolled
+                        ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black'
+                        : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white'
                       : isScrolled
                       ? 'text-gray-700 hover:text-white hover:bg-black hover:shadow-md'
                       : 'text-white/80 hover:text-black hover:bg-white hover:shadow-md'
@@ -85,7 +87,9 @@ const Navbar = () => {
                   to={link.path}
                   className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                     location.pathname === link.path
-                      ? 'text-white bg-black hover:bg-gray-800 shadow-lg'
+                      ? isScrolled
+                        ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black'
+                        : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white'
                       : isScrolled
                       ? 'text-gray-700 hover:text-white hover:bg-black hover:shadow-md'
                       : 'text-white/80 hover:text-black hover:bg-white hover:shadow-md'
@@ -124,7 +128,7 @@ const Navbar = () => {
                     }}
                     className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                       location.pathname === link.path
-                        ? 'text-white bg-black font-bold'
+                        ? 'text-gray-700 border-b-2 border-black font-bold'
                         : 'text-gray-700 hover:text-white hover:bg-black'
                     }`}
                   >
@@ -137,7 +141,7 @@ const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                       location.pathname === link.path
-                        ? 'text-white bg-black font-bold'
+                        ? 'text-gray-700 border-b-2 border-black font-bold'
                         : 'text-gray-700 hover:text-white hover:bg-black'
                     }`}
                   >
