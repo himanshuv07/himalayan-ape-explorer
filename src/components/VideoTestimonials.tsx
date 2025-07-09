@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Play, Pause } from 'lucide-react';
 
@@ -76,14 +77,15 @@ const VideoTestimonials = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Increased video card size */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
               onClick={() => window.open('/contact', '_self')}
-              className="group relative bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+              className="group relative bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer min-w-[300px]"
             >
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative h-96 overflow-hidden">
                 <video
                   src={testimonial.videoUrl}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -96,13 +98,13 @@ const VideoTestimonials = () => {
 
                 {/* Customer Info */}
                 <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="font-bold text-lg">{testimonial.customerName}</h3>
-                  <p className="text-sm opacity-90">{testimonial.location}</p>
+                  <h3 className="font-bold text-xl">{testimonial.customerName}</h3>
+                  <p className="text-base opacity-90">{testimonial.location}</p>
                 </div>
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-gray-800 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                  <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-base font-semibold text-gray-800 transform scale-0 group-hover:scale-100 transition-transform duration-300">
                     Book Trip
                   </div>
                 </div>

@@ -12,10 +12,10 @@ const Religious = () => {
           backgroundImage: `url('https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
         }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl font-bold mb-6">Religious Destinations</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 drop-shadow-lg">Religious Destinations</h1>
+          <p className="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-md">
             Embark on spiritual journeys to sacred places and find inner peace in divine destinations
           </p>
         </div>

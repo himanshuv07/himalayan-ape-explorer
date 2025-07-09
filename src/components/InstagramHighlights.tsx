@@ -32,33 +32,6 @@ const InstagramHighlights = () => {
       likes: "76,382",
       comments: "1,456",
       username: "himalayanape"
-    },
-    {
-      id: 4,
-      video: "https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4",
-      title: "Wildlife Encounter",
-      subtitle: "Rare mountain wildlife",
-      likes: "94,567",
-      comments: "3,142",
-      username: "himalayanape"
-    },
-    {
-      id: 5,
-      video: "https://videos.pexels.com/video-files/2499608/2499608-uhd_2560_1440_30fps.mp4",
-      title: "Camping Under Stars",
-      subtitle: "Night sky magic",
-      likes: "67,891",
-      comments: "987",
-      username: "himalayanape"
-    },
-    {
-      id: 6,
-      video: "https://videos.pexels.com/video-files/3571077/3571077-uhd_2560_1440_30fps.mp4",
-      title: "Mountain Lake",
-      subtitle: "Crystal clear waters",
-      likes: "83,245",
-      comments: "2,156",
-      username: "himalayanape"
     }
   ];
 
@@ -96,8 +69,8 @@ const InstagramHighlights = () => {
           </p>
         </div>
 
-        {/* Instagram Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Instagram Grid - Only 3 cards now */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {highlights.map((highlight) => (
             <div
               key={highlight.id}
