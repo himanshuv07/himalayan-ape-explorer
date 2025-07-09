@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -10,6 +11,7 @@ const ContactForm = () => {
     email: '',
     travelDates: '',
     destination: '',
+    customDestination: '',
     persons: '1'
   });
 
@@ -17,9 +19,27 @@ const ContactForm = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     
+    // Prepare WhatsApp message
+    const destination = formData.destination === 'custom' ? formData.customDestination : formData.destination;
+    const message = `*New Travel Enquiry*
+
+Name: ${formData.name}
+Contact: ${formData.contact}
+Email: ${formData.email}
+Travel Dates: ${formData.travelDates || 'Not specified'}
+Destination: ${destination || 'Not specified'}
+Number of Persons: ${formData.persons}
+
+Please contact me for more details about this trip.`;
+
+    // Send to WhatsApp
+    const whatsappNumber = '917909674407';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
     toast({
       title: "Enquiry Submitted!",
-      description: "Thank you for your enquiry. We'll contact you within 24 hours.",
+      description: "Your enquiry has been sent to WhatsApp. We'll contact you within 24 hours.",
     });
 
     // Reset form
@@ -29,6 +49,7 @@ const ContactForm = () => {
       email: '',
       travelDates: '',
       destination: '',
+      customDestination: '',
       persons: '1'
     });
   };
@@ -147,24 +168,52 @@ const ContactForm = () => {
                     <option value="bali">Bali</option>
                     <option value="thailand">Thailand</option>
                     <option value="maldives">Maldives</option>
+                    <option value="indonesia">Indonesia</option>
+                    <option value="vietnam">Vietnam</option>
                     <option value="bhutan">Bhutan</option>
                   </optgroup>
                   <optgroup label="Domestic">
                     <option value="shimla">Shimla</option>
                     <option value="manali">Manali</option>
                     <option value="kasol">Kasol</option>
+                    <option value="jibhi">Jibhi</option>
                     <option value="dharamshala">Dharamshala</option>
+                    <option value="haridwar">Haridwar</option>
                     <option value="rishikesh">Rishikesh</option>
+                    <option value="mussoorie">Mussoorie</option>
+                    <option value="auli">Auli</option>
                     <option value="nainital">Nainital</option>
+                    <option value="lansdowne">Lansdowne</option>
                   </optgroup>
                   <optgroup label="Religious">
+                    <option value="haridwar-religious">Haridwar</option>
                     <option value="kedarnath">Kedarnath</option>
                     <option value="badrinath">Badrinath</option>
-                    <option value="haridwar">Haridwar</option>
                     <option value="gangotri">Gangotri</option>
+                    <option value="yamunotri">Yamunotri</option>
+                    <option value="kainchi-dham">Kainchi Dham</option>
+                    <option value="kailash-darshan">Kailash Darshan</option>
+                    <option value="devi-darshan-himachal">Devi Darshan Himachal</option>
                   </optgroup>
+                  <option value="custom">Custom / Others</option>
                 </select>
               </div>
+
+              {formData.destination === 'custom' && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Custom Destination
+                  </label>
+                  <input
+                    type="text"
+                    name="customDestination"
+                    value={formData.customDestination}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    placeholder="Enter your preferred destination"
+                  />
+                </div>
+              )}
 
               <button
                 type="submit"

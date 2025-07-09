@@ -42,6 +42,22 @@ export const internationalDestinations = [
   },
   {
     id: 6,
+    name: "Indonesia",
+    image: "https://images.unsplash.com/photo-1555400082-8dd4d7f7b6b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Discover diverse islands with rich culture, ancient temples, and stunning natural beauty.",
+    price: "₹70,000",
+    duration: "6 Days"
+  },
+  {
+    id: 7,
+    name: "Vietnam",
+    image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience vibrant culture, delicious cuisine, and breathtaking landscapes from Ha Long Bay to Ho Chi Minh City.",
+    price: "₹60,000",
+    duration: "7 Days"
+  },
+  {
+    id: 8,
     name: "Bhutan",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Journey to the Last Shangri-La with pristine mountains, monasteries, and unique culture.",
@@ -52,7 +68,7 @@ export const internationalDestinations = [
 
 export const domesticDestinations = [
   {
-    id: 7,
+    id: 9,
     name: "Shimla",
     image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Experience the charm of the Queen of Hills with colonial architecture and scenic beauty.",
@@ -60,7 +76,7 @@ export const domesticDestinations = [
     duration: "4 Days"
   },
   {
-    id: 8,
+    id: 10,
     name: "Manali",
     image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Adventure awaits in the Valley of Gods with snow-capped peaks and thrilling activities.",
@@ -68,7 +84,7 @@ export const domesticDestinations = [
     duration: "5 Days"
   },
   {
-    id: 9,
+    id: 11,
     name: "Kasol",
     image: "https://images.unsplash.com/photo-1486022338407-f8618204c50d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Discover the mini Israel of India nestled in the beautiful Parvati Valley.",
@@ -76,7 +92,15 @@ export const domesticDestinations = [
     duration: "3 Days"
   },
   {
-    id: 10,
+    id: 12,
+    name: "Jibhi",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience tranquility in this hidden gem of Himachal Pradesh with pristine nature.",
+    price: "₹18,000",
+    duration: "3 Days"
+  },
+  {
+    id: 13,
     name: "Dharamshala",
     image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Find peace in the home of Dalai Lama with stunning mountain views and Tibetan culture.",
@@ -84,42 +108,7 @@ export const domesticDestinations = [
     duration: "4 Days"
   },
   {
-    id: 11,
-    name: "Rishikesh",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    description: "Experience spiritual awakening and adventure sports in the Yoga Capital of the World.",
-    price: "₹22,000",
-    duration: "3 Days"
-  },
-  {
-    id: 12,
-    name: "Nainital",
-    image: "https://images.unsplash.com/photo-1506729623306-b5a934d88b53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    description: "Enjoy serene lake views and pleasant weather in this charming hill station.",
-    price: "₹24,000",
-    duration: "4 Days"
-  }
-];
-
-export const religiousDestinations = [
-  {
-    id: 13,
-    name: "Kedarnath",
-    image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    description: "Embark on a sacred pilgrimage to one of the twelve Jyotirlingas of Lord Shiva.",
-    price: "₹35,000",
-    duration: "6 Days"
-  },
-  {
     id: 14,
-    name: "Badrinath",
-    image: "https://images.unsplash.com/photo-1626619876325-5ba12e7b6d9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    description: "Visit the sacred abode of Lord Vishnu nestled in the Garhwal Himalayas.",
-    price: "₹32,000",
-    duration: "5 Days"
-  },
-  {
-    id: 15,
     name: "Haridwar",
     image: "https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Witness the spiritual essence of India at the gateway to the gods on River Ganges.",
@@ -127,7 +116,74 @@ export const religiousDestinations = [
     duration: "3 Days"
   },
   {
+    id: 15,
+    name: "Rishikesh",
+    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience spiritual awakening and adventure sports in the Yoga Capital of the World.",
+    price: "₹22,000",
+    duration: "3 Days"
+  },
+  {
     id: 16,
+    name: "Mussoorie",
+    image: "https://images.unsplash.com/photo-1506729623306-b5a934d88b53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Enjoy the charm of the Queen of Hills with scenic beauty and pleasant weather.",
+    price: "₹26,000",
+    duration: "4 Days"
+  },
+  {
+    id: 17,
+    name: "Auli",
+    image: "https://images.unsplash.com/photo-1551524164-6cf6ac832fb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience skiing paradise with snow-covered slopes and breathtaking Himalayan views.",
+    price: "₹35,000",
+    duration: "5 Days"
+  },
+  {
+    id: 18,
+    name: "Nainital",
+    image: "https://images.unsplash.com/photo-1506729623306-b5a934d88b53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Enjoy serene lake views and pleasant weather in this charming hill station.",
+    price: "₹24,000",
+    duration: "4 Days"
+  },
+  {
+    id: 19,
+    name: "Lansdowne",
+    image: "https://images.unsplash.com/photo-1576491443177-8b0b26c25dd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Discover this quiet hill station perfect for peaceful getaways and nature walks.",
+    price: "₹20,000",
+    duration: "3 Days"
+  }
+];
+
+export const religiousDestinations = [
+  {
+    id: 20,
+    name: "Haridwar",
+    image: "https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Witness the spiritual essence of India at the gateway to the gods on River Ganges.",
+    price: "₹18,000",
+    duration: "3 Days"
+  },
+  {
+    id: 21,
+    name: "Kedarnath",
+    image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Embark on a sacred pilgrimage to one of the twelve Jyotirlingas of Lord Shiva.",
+    price: "₹35,000",
+    duration: "6 Days"
+  },
+  {
+    id: 22,
+    name: "Badrinath",
+    image: "https://images.unsplash.com/photo-1626619876325-5ba12e7b6d9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Visit the sacred abode of Lord Vishnu nestled in the Garhwal Himalayas.",
+    price: "₹32,000",
+    duration: "5 Days"
+  },
+  {
+    id: 23,
     name: "Gangotri",
     image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Journey to the origin of the holy River Ganges in the pristine Garhwal Himalayas.",
@@ -135,7 +191,7 @@ export const religiousDestinations = [
     duration: "7 Days"
   },
   {
-    id: 17,
+    id: 24,
     name: "Yamunotri",
     image: "https://images.unsplash.com/photo-1626951040629-0e2e4b9d3e2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Seek blessings at the source of River Yamuna in the divine Himalayan setting.",
@@ -143,11 +199,27 @@ export const religiousDestinations = [
     duration: "6 Days"
   },
   {
-    id: 18,
+    id: 25,
     name: "Kainchi Dham",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Visit the blessed ashram of Neem Karoli Baba surrounded by serene hills.",
     price: "₹15,000",
     duration: "2 Days"
+  },
+  {
+    id: 26,
+    name: "Kailash Darshan",
+    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Experience the divine darshan of sacred Mount Kailash in this spiritual journey.",
+    price: "₹85,000",
+    duration: "15 Days"
+  },
+  {
+    id: 27,
+    name: "Devi Darshan Himachal",
+    image: "https://images.unsplash.com/photo-1626619876325-5ba12e7b6d9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Visit sacred temples dedicated to the Divine Mother across beautiful Himachal Pradesh.",
+    price: "₹28,000",
+    duration: "6 Days"
   }
 ];

@@ -6,8 +6,13 @@ import DestinationGrid from '../components/DestinationGrid';
 const Religious = () => {
   return (
     <div className="pt-16">
-      <div className="bg-gradient-to-br from-orange-600 to-red-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div 
+        className="bg-gradient-to-br from-orange-600 to-red-700 text-white py-20 relative bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(234, 88, 12, 0.8), rgba(185, 28, 28, 0.8)), url('https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-5xl font-bold mb-6">Religious Destinations</h1>
           <p className="text-xl text-orange-100 max-w-3xl mx-auto">
             Embark on spiritual journeys to sacred places and find inner peace in divine destinations

@@ -12,7 +12,7 @@ const SearchBar = () => {
   const destinations = {
     international: ['Dubai', 'Singapore', 'Bali', 'Thailand', 'Maldives', 'Indonesia', 'Vietnam', 'Bhutan'],
     domestic: ['Shimla', 'Manali', 'Kasol', 'Jibhi', 'Dharamshala', 'Haridwar', 'Rishikesh', 'Mussoorie', 'Auli', 'Nainital', 'Lansdowne'],
-    religious: ['Haridwar', 'Kedarnath', 'Badrinath', 'Gangotri', 'Yamnotri', 'Kainchi Dham', 'Kailash Darshan', 'Devi darshan Himachal']
+    religious: ['Haridwar', 'Kedarnath', 'Badrinath', 'Gangotri', 'Yamunotri', 'Kainchi Dham', 'Kailash Darshan', 'Devi Darshan Himachal']
   };
 
   const allDestinations = [...destinations.international, ...destinations.domestic, ...destinations.religious];
