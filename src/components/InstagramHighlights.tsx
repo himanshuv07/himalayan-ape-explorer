@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ExternalLink, Play, Heart, MessageCircle, Send, Bookmark } from 'lucide-react';
+import reel from '../assets/Insta video 1.mp4';
 
 const InstagramHighlights = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -8,7 +9,7 @@ const InstagramHighlights = () => {
   const highlights = [
     {
       id: 1,
-      video: "https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4",
+      video: reel,
       title: "Mountain Adventure",
       subtitle: "Himalayan Trek - 14,100 ft",
       likes: "105,148",
@@ -17,7 +18,7 @@ const InstagramHighlights = () => {
     },
     {
       id: 2,
-      video: "https://videos.pexels.com/video-files/2499611/2499611-uhd_2560_1440_30fps.mp4",
+      video: reel,
       title: "Sunrise in Mountains",
       subtitle: "Golden hour moments",
       likes: "89,425",
@@ -26,7 +27,7 @@ const InstagramHighlights = () => {
     },
     {
       id: 3,
-      video: "https://videos.pexels.com/video-files/3571089/3571089-uhd_2560_1440_30fps.mp4",
+      video: reel,
       title: "River Valley Trek",
       subtitle: "Nature's symphony",
       likes: "76,382",

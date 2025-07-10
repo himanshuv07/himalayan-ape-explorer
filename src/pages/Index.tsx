@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Hero from '../components/Hero';
 import SuperHitStarters from '../components/SuperHitStarters';
@@ -7,6 +6,8 @@ import BudgetSection from '../components/BudgetSection';
 import DestinationCarousel from '../components/DestinationCarousel';
 import InstagramHighlights from '../components/InstagramHighlights';
 import FanbookTestimonials from '../components/FanbookTestimonials';
+import CircularGallery from '../components/CircularGallary';
+
 
 const Index = () => {
   const middleEastDestinations = [
@@ -46,7 +47,13 @@ const Index = () => {
       <Hero />
       <SuperHitStarters />
       <BudgetSection />
-      
+      <div style={{ height: '600px', position: 'relative' }}>
+        <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex  justify-center h-full ">
+          Gallary
+        </div>
+        <CircularGallery bend={2} textColor="#" borderRadius={0.05} scrollEase={0.02}/>
+      </div>
+
       {/* Destination Sections */}
       <DestinationCarousel 
         title="MIDDLE EAST" 

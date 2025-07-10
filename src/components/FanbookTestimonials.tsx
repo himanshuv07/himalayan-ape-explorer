@@ -82,14 +82,16 @@ const FanbookTestimonials = () => {
                   <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
                     Travel the world like
                   </h3>
-                  <div className="text-4xl font-black text-yellow-400 mb-6 animate-pulse">NEERAJ</div>
+                  <div className="text-4xl font-black text-yellow-400 mb-6 animate-pulse">HIMANSHU</div>
                   <a
                     href="https://www.youtube.com/@himalayanape01/shorts"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                   >
-                    <span className="mr-2">🎬</span>
+                    <span className="mr-2">🎬
+                      
+                    </span>
                     Watch Adventures →
                   </a>
                 </div>
