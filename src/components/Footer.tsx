@@ -1,4 +1,4 @@
-
+import logo from '../assets/logo.png'; 
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
 
@@ -11,9 +11,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img
-                src="/lovable-uploads/b7f1b3b5-cf5c-41a8-9329-01957fa452b8.png"
+                src={logo}
                 alt="Himalayan Ape"
-                className="h-10 w-auto object-contain brightness-0 invert"
+                className="h-20 w-auto object-contain brightness-0 invert"
               />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
