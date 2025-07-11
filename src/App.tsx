@@ -12,7 +12,6 @@ import Domestic from "./pages/Domestic";
 import Religious from "./pages/Religious";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import CircularGallery from "./components/CircularGallary";
 
 const queryClient = new QueryClient();
 

@@ -42,9 +42,10 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
         <div className="animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-            Create a{' '}
-            <span className="text-green-400 italic">Super Hit</span>{' '}
-            holiday
+            Where {' '}
+            <span className="text-blue-400 italic">Adventure</span>{' '}
+            Meets the
+            <span className="text-blue-400 italic"> Soul.</span>{' '}
           </h1>
           
           {/* Search Bar */}

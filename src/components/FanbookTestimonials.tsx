@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import video from '../assets/Testimonial Video.mp4';
 
 const FanbookTestimonials = () => {
   const testimonials = [
@@ -66,37 +67,40 @@ const FanbookTestimonials = () => {
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-br from-pink-300/15 to-indigo-300/15 rounded-full blur-2xl animate-pulse animation-delay-1000"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Video Section */}
           <div className="relative order-2 lg:order-1">
             <div className="relative bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
               <div className="absolute inset-0 bg-black/30"></div>
-              <img
-                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Travel Experience"
-                className="w-full h-80 object-cover opacity-90"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+
+              <a
+                href="https://www.youtube.com/@himalayanape01/shorts"
+                target="_blank"
+                rel="noopener noreferrer"
+                // className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+              >
+                <video
+                  src={video}
+                  className="w-full h-80 object-cover opacity-90"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                ></video>
+                {/* <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white p-6">
+                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
                     Travel the world like
                   </h3>
                   <div className="text-4xl font-black text-yellow-400 mb-6 animate-pulse">HIMANSHU</div>
-                  <a
-                    href="https://www.youtube.com/@himalayanape01/shorts"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
-                  >
                     <span className="mr-2">🎬
-                      
                     </span>
                     Watch Adventures →
-                  </a>
-                </div>
-              </div>
-              
+                  </div>
+                </div> */}
+              </a>
+
               {/* Floating elements */}
               <div className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full animate-bounce"></div>
               <div className="absolute bottom-4 left-4 w-6 h-6 bg-yellow-400/30 rounded-full animate-bounce animation-delay-500"></div>
@@ -104,7 +108,7 @@ const FanbookTestimonials = () => {
           </div>
 
           {/* Enhanced Testimonials Section */}
-          <div className="relative order-1 lg:order-2">
+          <div className="relative order-1 lg:order-2 ">
             <div className="mb-8">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
@@ -114,7 +118,7 @@ const FanbookTestimonials = () => {
                   <h2 className="text-3xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     FANBOOK
                   </h2>
-                  <h3 className="text-xl font-bold text-pink-500 italic">Testimonials</h3>
+                  <h3 className="text-xl font-bold text-pink-500 italic ">Testimonials</h3>
                 </div>
               </div>
               <div className="flex space-x-1 mb-2">
@@ -136,7 +140,7 @@ const FanbookTestimonials = () => {
                   'bottom-20 left-20 animate-float-delayed',
                   'bottom-0 right-36 animate-bounce'
                 ];
-                
+
                 return (
                   <div
                     key={testimonial.id}
@@ -160,7 +164,7 @@ const FanbookTestimonials = () => {
                   </div>
                 );
               })}
-              
+
               {/* Enhanced main testimonial */}
               {mainTestimonial && (
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group">
