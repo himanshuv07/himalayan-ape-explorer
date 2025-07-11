@@ -51,7 +51,7 @@ const Index = () => {
         <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex  justify-center h-full ">
           Gallary
         </div>
-        <CircularGallery bend={2} textColor="#" borderRadius={0.05} scrollEase={0.02}/>
+        <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02}/>
       </div>
 
       {/* Destination Sections */}
