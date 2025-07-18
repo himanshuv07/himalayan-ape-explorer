@@ -55,12 +55,12 @@ const Index = () => {
       <BudgetSection />
 
       {/* Circular Gallery Section */}
-      <div style={{ height: '600px', position: 'relative' }}>
+      {/* <div style={{ height: '600px', position: 'relative' }}>
         <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full ">
           Gallary
         </div>
         <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02}/>
-      </div>
+      </div> */}
 
       {/* Destination Sections */}
       <DestinationCarousel 

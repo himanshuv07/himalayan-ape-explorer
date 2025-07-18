@@ -1,7 +1,7 @@
-
-import logo from '../assets/logo.png'; 
+import logo from '../assets/logo.png';
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
+import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa'; // ✅ imported real icons
 
 const Footer = () => {
   return (
@@ -14,11 +14,11 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="Himalayan Ape"
-                className="h-20 w-auto object-contain brightness-0 invert"
+                className="h-20 w-auto object-contain"
               />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted travel companion for unforgettable adventures across the Himalayas and beyond. 
+              Your trusted travel companion for unforgettable adventures across the Himalayas and beyond.
               Experience the world with "The Real Survivor".
             </p>
           </div>
@@ -27,13 +27,24 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
-              <li><a href="/about" className="text-gray-300 hover:text-white transition-colors duration-200">About</a></li>
-              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors duration-200">Services</a></li>
-              <li><a href="/international" className="text-gray-300 hover:text-white transition-colors duration-200">International</a></li>
-              <li><a href="/domestic" className="text-gray-300 hover:text-white transition-colors duration-200">Domestic</a></li>
-              <li><a href="/religious" className="text-gray-300 hover:text-white transition-colors duration-200">Religious</a></li>
-              <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors duration-200">Contact</a></li>
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/about' },
+                { name: 'Services', path: '/services' },
+                { name: 'International', path: '/international' },
+                { name: 'Domestic', path: '/domestic' },
+                { name: 'Religious', path: '/religious' },
+                { name: 'Contact', path: '/contact' },
+              ].map(link => (
+                <li key={link.name}>
+                  <a
+                    href={link.path}
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -53,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Links & Copyright */}
+        {/* Social & Copyright */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-6 mb-4 md:mb-0">
@@ -61,29 +72,29 @@ const Footer = () => {
                 href="https://www.instagram.com/himalayanape/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-pink-400 transition-colors duration-200"
+                className="text-gray-300 hover:text-pink-500 transition"
               >
-                📷 Instagram
+                <FaInstagram size={20} />
               </a>
               <a
                 href="https://www.facebook.com/himalayanape/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                className="text-gray-300 hover:text-blue-500 transition"
               >
-                📘 Facebook
+                <FaFacebookF size={20} />
               </a>
               <a
                 href="https://www.youtube.com/@himalayanape01"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-red-400 transition-colors duration-200"
+                className="text-gray-300 hover:text-red-500 transition"
               >
-                ▶️ YouTube
+                <FaYoutube size={20} />
               </a>
             </div>
             <p className="text-gray-400 text-sm">
-              © 2024 Himalayan Ape. All rights reserved.
+              © 2025 Himalayan Ape. All rights reserved.
             </p>
           </div>
         </div>

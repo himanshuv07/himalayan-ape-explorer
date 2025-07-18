@@ -202,12 +202,12 @@ const FanbookTestimonials = () => {
               </div>
             )}
 
-            <div className="text-center mt-8">
+            {/* <div className="text-center mt-8">
               <button className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 <span className="mr-2">💝</span>
                 View More Love Stories →
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

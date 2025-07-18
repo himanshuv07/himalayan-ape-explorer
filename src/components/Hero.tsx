@@ -5,7 +5,7 @@ import TrustIndicators from './TrustIndicators';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const backgroundImages = [
     'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
     'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
@@ -27,9 +27,8 @@ const Hero = () => {
       {backgroundImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
           style={{
             backgroundImage: `url(${image})`,
           }}
@@ -43,11 +42,11 @@ const Hero = () => {
         <div className="animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
             Begin Your{' '}
-            <span className="text-blue-400 italic">Adventure</span>{' '}
+            <span className="text-green-400 ">Adventure</span>{' '}
             with
-            <span className="text-blue-400 italic"> Himalayan Ape.</span>{' '}
+            <span className="text-blue-400 "> Himalayan Ape.</span>{' '}
           </h1>
-          
+
           {/* Search Bar */}
           <div className="mb-8">
             <SearchBar />
