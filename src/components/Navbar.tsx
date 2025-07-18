@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -13,6 +12,7 @@ import logo from '../assets/logo.png';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 10 || location.pathname !== '/');
     };
   
-    handleScroll(); // Trigger once on page load / route change
+    handleScroll();
   
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -69,75 +69,89 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Himalayan Ape"
-              className="h-16 w-auto object-contain "
+              className="h-16 w-auto object-contain"
             />
           </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              link.onClick ? (
-                <button
-                  key={link.name}
-                  onClick={link.onClick}
-                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
-                    location.pathname === link.path
-                      ? isScrolled
-                        ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
-                        : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
-                      : isScrolled
-                      ? 'text-gray-700 hover:text-gray-900'
-                      : 'text-white/80 hover:text-white'
-                  }`}                
-                >
-                  {link.name}
-                </button>
-              ) : (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
-                    location.pathname === link.path
-                      ? isScrolled
-                        ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
-                        : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
-                      : isScrolled
-                      ? 'text-gray-700 hover:text-gray-900'
-                      : 'text-white/80 hover:text-white'
-                  }`}                
-                >
-                  {link.name}
-                </Link>
-              )
-            ))}
-            
-            {/* Destinations Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg flex items-center space-x-1 ${
-                destinationLinks.some(dest => location.pathname === dest.path)
+            {/* Home Link */}
+            <button
+              onClick={handleHomeClick}
+              className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
+                location.pathname === '/'
                   ? isScrolled
                     ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                     : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                   : isScrolled
                   ? 'text-gray-700 hover:text-gray-900'
                   : 'text-white/80 hover:text-white'
-              }`}>
-                <span>Destinations</span>
-                <ChevronDown size={16} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white shadow-lg border rounded-lg">
-                {destinationLinks.map((dest) => (
-                  <DropdownMenuItem key={dest.name} asChild>
-                    <Link
-                      to={dest.path}
-                      className="block w-full px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    >
-                      {dest.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+              }`}                
+            >
+              Home
+            </button>
+            
+            {/* Destinations Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsDestinationsOpen(true)}
+              onMouseLeave={() => setIsDestinationsOpen(false)}
+            >
+              <DropdownMenu open={isDestinationsOpen} onOpenChange={setIsDestinationsOpen}>
+                <DropdownMenuTrigger 
+                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg flex items-center space-x-1 ${
+                    destinationLinks.some(dest => location.pathname === dest.path)
+                      ? isScrolled
+                        ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
+                        : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
+                      : isScrolled
+                      ? 'text-gray-700 hover:text-gray-900'
+                      : 'text-white/80 hover:text-white'
+                  } outline-none focus:outline-none`}
+                  asChild
+                >
+                  <div className="cursor-pointer">
+                    <span>Destinations</span>
+                    <ChevronDown size={16} className={`transition-transform duration-200 ${isDestinationsOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent 
+                  className="bg-white shadow-lg border rounded-lg z-50 mt-2"
+                  onMouseEnter={() => setIsDestinationsOpen(true)}
+                  onMouseLeave={() => setIsDestinationsOpen(false)}
+                >
+                  {destinationLinks.map((dest) => (
+                    <DropdownMenuItem key={dest.name} asChild>
+                      <Link
+                        to={dest.path}
+                        className="block w-full px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      >
+                        {dest.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
+            {/* Other Navigation Links */}
+            {navLinks.slice(1).map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
+                  location.pathname === link.path
+                    ? isScrolled
+                      ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
+                      : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
+                    : isScrolled
+                    ? 'text-gray-700 hover:text-gray-900'
+                    : 'text-white/80 hover:text-white'
+                }`}                
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile menu button */}
@@ -157,36 +171,33 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-lg rounded-lg mt-2 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                link.onClick ? (
-                  <button
-                    key={link.name}
-                    onClick={() => {
-                      link.onClick();
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                      location.pathname === link.path
-                        ? 'text-gray-700 border-b-2 border-gray-400 font-bold'
-                        : 'text-gray-700 hover:text-white hover:bg-black'
-                    }`}
-                  >
-                    {link.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                      location.pathname === link.path
-                        ? 'text-gray-700 border-b-2 border-gray-400 font-bold'
-                        : 'text-gray-700 hover:text-white hover:bg-black'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                )
+              <button
+                onClick={() => {
+                  handleHomeClick();
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  location.pathname === '/'
+                    ? 'text-gray-700 border-b-2 border-gray-400 font-bold'
+                    : 'text-gray-700 hover:text-white hover:bg-black'
+                }`}
+              >
+                Home
+              </button>
+              
+              {navLinks.slice(1).map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                    location.pathname === link.path
+                      ? 'text-gray-700 border-b-2 border-gray-400 font-bold'
+                      : 'text-gray-700 hover:text-white hover:bg-black'
+                  }`}
+                >
+                  {link.name}
+                </Link>
               ))}
               
               {/* Mobile Destinations */}

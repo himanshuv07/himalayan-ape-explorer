@@ -1,30 +1,26 @@
 
 import React from 'react';
-import { Users, Award, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const About = () => {
   const highlights = [
     {
-      icon: Users,
       title: "Expert Trekking",
       description: "Specialized in Indian Himalayas trekking with experienced guides",
       image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=400&q=80"
     },
     {
-      icon: Users,
       title: "Versatility in Tourism",
       description: "Complete range of adventure and spiritual tourism services",
       image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80"
     },
     {
-      icon: Award,
       title: "Top Class Hospitality",
       description: "Premium quality services and equipment for outstanding experiences",
       image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80"
     },
     {
-      icon: Heart,
       title: "Tremendous Support",
       description: "24/7 guidance with trusted local contacts and vendors",
       image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=400&q=80"
@@ -176,18 +172,18 @@ const About = () => {
             Join thousands of satisfied travelers who have experienced the magic of the Himalayas with us
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Contact Us
-            </a>
-            <a
-              href="/services"
+            </Link>
+            <Link
+              to="/services"
               className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
             >
               View Services
-            </a>
+            </Link>
           </div>
         </div>
       </section>
