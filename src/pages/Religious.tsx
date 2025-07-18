@@ -9,7 +9,7 @@ const Religious = () => {
       <div 
         className="relative text-white py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+          backgroundImage: `url('https://media.istockphoto.com/id/1163376205/photo/indian-sadhu-enjoy-boat-ride-at-varanasi-ganges-river-with-view-of-ancient-varanasi-city.jpg?s=2048x2048&w=is&k=20&c=qL74eu-gkWRkhP_uJ5dZItMRuzRTzWyn0WIGd-HcNI0=')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>

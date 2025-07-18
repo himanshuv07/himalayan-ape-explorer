@@ -1,4 +1,3 @@
-import React from 'react';
 import Hero from '../components/Hero';
 import SuperHitStarters from '../components/SuperHitStarters';
 import VideoTestimonials from '../components/VideoTestimonials';
@@ -7,9 +6,17 @@ import DestinationCarousel from '../components/DestinationCarousel';
 import InstagramHighlights from '../components/InstagramHighlights';
 import FanbookTestimonials from '../components/FanbookTestimonials';
 import CircularGallery from '../components/CircularGallary';
-
+import LeadFormModal from '../components/LeadFormModal';
+import { useEffect, useState } from 'react';
 
 const Index = () => {
+  const [openLeadForm, setOpenLeadForm] = useState(false);
+
+  // Auto open after delay (3 seconds)
+  useEffect(() => {
+    const timer = setTimeout(() => setOpenLeadForm(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const InternationalDestinations = [
     { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80", packages: "Dubai Tour" },
@@ -21,7 +28,7 @@ const Index = () => {
     { name: "Vietnam", image: "https://images.unsplash.com/photo-1575456454701-c19f5604212f?auto=format&fit=crop&w=800&q=80", packages: "Vietnam Tour" },
     { name: "Bhutan", image: "https://images.unsplash.com/photo-1590763089493-ea19843f03b6?auto=format&fit=crop&w=800&q=80", packages: "Bhutan Tour" }
   ];
-  
+
   const DOMESTICDESTINATIONS = [
     { name: "Shimla", image: "https://images.unsplash.com/photo-1623060774093-94e15c8f6d97?auto=format&fit=crop&w=800&q=80", packages: "Shimla Trip" },
     { name: "Manali", image: "https://images.unsplash.com/photo-1611162617213-3d8b2c2b2dd6?auto=format&fit=crop&w=800&q=80", packages: "Manali Trip" },
@@ -35,7 +42,7 @@ const Index = () => {
     { name: "Nainital", image: "https://images.unsplash.com/photo-1574011874809-0c5f114a9780?auto=format&fit=crop&w=800&q=80", packages: "Nainital Packages" },
     { name: "Lansdowne", image: "https://images.unsplash.com/photo-1633090580504-1a162f5c5b1a?auto=format&fit=crop&w=800&q=80", packages: "Lansdowne Tour" }
   ];
-  
+
   const RELIGIOUSDESTINATIONS = [
     { name: "Haridwar", image: "https://images.unsplash.com/photo-1636124586314-8e1ff0a222f7?auto=format&fit=crop&w=800&q=80", packages: "Haridwar Pilgrimage" },
     { name: "Kedarnath", image: "https://images.unsplash.com/photo-1592477857032-df7e77cc64a1?auto=format&fit=crop&w=800&q=80", packages: "Kedarnath Yatra" },
@@ -46,7 +53,6 @@ const Index = () => {
     { name: "Kailash Darshan", image: "https://images.unsplash.com/photo-1613580086172-6f74b33f2df6?auto=format&fit=crop&w=800&q=80", packages: "Kailash Darshan Yatra" },
     { name: "Devi Darshan Himachal", image: "https://images.unsplash.com/photo-1583241800527-996b65a97ec6?auto=format&fit=crop&w=800&q=80", packages: "Devi Darshan Himachal" }
   ];
-  
 
   return (
     <div>
@@ -54,38 +60,38 @@ const Index = () => {
       <SuperHitStarters />
       <BudgetSection />
 
-      {/* Circular Gallery Section */}
       <div style={{ height: '600px', position: 'relative' }}>
         <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full ">
           Gallary
         </div>
-        <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02}/>
+        <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
       </div>
 
-      {/* Destination Sections */}
-      <DestinationCarousel 
-        title="International Destinations" 
-        destinations={InternationalDestinations}
-      />
-      
-      <DestinationCarousel 
-        title="DOMESTIC DESTINATIONS" 
-        destinations={DOMESTICDESTINATIONS}
-      />
-      
-      <DestinationCarousel 
-        title="RELIGIOUS DESTINATIONS" 
-        destinations={RELIGIOUSDESTINATIONS}
-      />
+      <DestinationCarousel title="International Destinations" destinations={InternationalDestinations} />
+      <DestinationCarousel title="DOMESTIC DESTINATIONS" destinations={DOMESTICDESTINATIONS} />
+      <DestinationCarousel title="RELIGIOUS DESTINATIONS" destinations={RELIGIOUSDESTINATIONS} />
 
-      {/* Bottom Sections */}
       <VideoTestimonials />
       <FanbookTestimonials />
       <InstagramHighlights />
 
-      {/* Call to Action Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <LeadFormModal open={openLeadForm} setOpen={setOpenLeadForm} />
+
+      <button
+        onClick={() => setOpenLeadForm(true)}
+        className="fixed bottom-6 right-6 z-50 bg-indigo-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition-all"
+      >
+        Plan Your Trip
+      </button>
+
+      <div
+        className="relative text-white py-20 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')`
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-bold mb-6">Ready for Your Next Adventure?</h2>
           <p className="text-xl mb-8 text-blue-100">
             Let Himalayan Ape - The Real Survivor guide you to unforgettable experiences
