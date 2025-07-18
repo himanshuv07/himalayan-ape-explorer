@@ -1,7 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
@@ -39,10 +45,13 @@ const Navbar = () => {
     { name: 'Home', path: '/', onClick: handleHomeClick },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
+  const destinationLinks = [
     { name: 'International', path: '/international' },
     { name: 'Domestic', path: '/domestic' },
     { name: 'Religious', path: '/religious' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -77,8 +86,8 @@ const Navbar = () => {
                         ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                         : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                       : isScrolled
-                      ? 'text-gray-700 hover:scale-105'
-                      : 'text-white/80 hover:scale-105'
+                      ? 'text-gray-700 hover:text-gray-900'
+                      : 'text-white/80 hover:text-white'
                   }`}                
                 >
                   {link.name}
@@ -93,14 +102,42 @@ const Navbar = () => {
                         ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                         : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                       : isScrolled
-                      ? 'text-gray-700 hover:scale-105'
-                      : 'text-white/80 hover:scale-105'
+                      ? 'text-gray-700 hover:text-gray-900'
+                      : 'text-white/80 hover:text-white'
                   }`}                
                 >
                   {link.name}
                 </Link>
               )
             ))}
+            
+            {/* Destinations Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg flex items-center space-x-1 ${
+                destinationLinks.some(dest => location.pathname === dest.path)
+                  ? isScrolled
+                    ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
+                    : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
+                  : isScrolled
+                  ? 'text-gray-700 hover:text-gray-900'
+                  : 'text-white/80 hover:text-white'
+              }`}>
+                <span>Destinations</span>
+                <ChevronDown size={16} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-white shadow-lg border rounded-lg">
+                {destinationLinks.map((dest) => (
+                  <DropdownMenuItem key={dest.name} asChild>
+                    <Link
+                      to={dest.path}
+                      className="block w-full px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                    >
+                      {dest.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile menu button */}
@@ -151,6 +188,25 @@ const Navbar = () => {
                   </Link>
                 )
               ))}
+              
+              {/* Mobile Destinations */}
+              <div className="border-t border-gray-200 pt-2">
+                <p className="px-3 py-2 text-sm font-semibold text-gray-500">Destinations</p>
+                {destinationLinks.map((dest) => (
+                  <Link
+                    key={dest.name}
+                    to={dest.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block px-6 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                      location.pathname === dest.path
+                        ? 'text-gray-700 border-b-2 border-gray-400 font-bold'
+                        : 'text-gray-700 hover:text-white hover:bg-black'
+                    }`}
+                  >
+                    {dest.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         )}

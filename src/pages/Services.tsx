@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mountain, Compass, Tent, Plane, Waves, Bike, Zap, Camera, TreePine, Church, Heart, Users, Clock, MapPin, Utensils, Droplets } from 'lucide-react';
+import { Clock, MapPin, Users, Utensils, Droplets } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -9,56 +9,56 @@ const Services = () => {
 
   const adventureServices = [
     {
-      icon: Mountain,
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=400&q=80",
       title: "Trekking",
       description: "Untie your trekking expectations",
       detail: "Experience world-class trekking in the Indian Himalayas with our expert guides and complete equipment support.",
       features: ["Expert guides", "Complete equipment", "Safety first approach", "Group & solo options"]
     },
     {
-      icon: Compass,
+      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80",
       title: "Hiking",
       description: "Wander endlessly",
       detail: "Explore scenic trails and hidden gems with our carefully curated hiking experiences.",
       features: ["Scenic routes", "Local insights", "All fitness levels", "Photography stops"]
     },
     {
-      icon: Tent,
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80",
       title: "Camping",
       description: "You deserve a camping break",
       detail: "Reconnect with nature through our premium camping experiences under starlit skies.",
       features: ["Premium tents", "Delicious meals", "Campfire nights", "Stargazing sessions"]
     },
     {
-      icon: Mountain,
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=80",
       title: "Climbing",
       description: "Climb the real heights with us",
       detail: "Challenge yourself with our rock climbing and mountaineering expeditions.",
       features: ["Professional equipment", "Safety protocols", "Skill development", "Certified instructors"]
     },
     {
-      icon: Plane,
+      image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=400&q=80",
       title: "Paragliding",
       description: "Fly high",
       detail: "Soar through the skies and witness breathtaking aerial views of the Himalayas.",
       features: ["Tandem flights", "Solo training", "Scenic locations", "Professional pilots"]
     },
     {
-      icon: Waves,
+      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=400&q=80",
       title: "River Rafting",
       description: "Be restless",
       detail: "Experience the thrill of white-water rafting in pristine Himalayan rivers.",
       features: ["All difficulty levels", "Safety equipment", "Experienced guides", "Scenic rapids"]
     },
     {
-      icon: Bike,
+      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=400&q=80",
       title: "Bike Trips",
       description: "Feel the madness",
       detail: "Explore mountain roads and scenic routes on our exciting motorcycle adventures.",
       features: ["Quality bikes", "Scenic routes", "Local experiences", "Support vehicle"]
     },
     {
-      icon: Zap,
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=400&q=80",
       title: "Bungee Jumping",
       description: "Ahead of adventure",
       detail: "Take the ultimate leap of faith with our safe and thrilling bungee jumping experiences.",
@@ -68,21 +68,21 @@ const Services = () => {
 
   const wildlifeServices = [
     {
-      icon: Camera,
+      image: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?auto=format&fit=crop&w=400&q=80",
       title: "Jungle Safari",
       description: "Spend your days in the epitome of mother nature",
       detail: "Explore wildlife sanctuaries with expert guides and proper safari vehicles.",
       features: ["Expert naturalists", "Premium vehicles", "Wildlife photography", "Local insights"]
     },
     {
-      icon: Camera,
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=80",
       title: "Bird Watching",
       description: "Praise the beauty of birds",
       detail: "Perfect for ornithology enthusiasts and nature lovers seeking vivid experiences.",
       features: ["Bird identification", "Photography tips", "Best locations", "Expert guides"]
     },
     {
-      icon: TreePine,
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=400&q=80",
       title: "Nature Walk",
       description: "Planning your walks in the paths of nature",
       detail: "Immerse yourself completely in nature with our guided nature walks.",
@@ -92,21 +92,21 @@ const Services = () => {
 
   const spiritualServices = [
     {
-      icon: Church,
+      image: "https://images.unsplash.com/photo-1582563172107-4b2d2b5a83a8?auto=format&fit=crop&w=400&q=80",
       title: "Pilgrimage",
       description: "Personify your prayers",
       detail: "Visit sacred destinations and ancient pilgrimage sites with proper guidance.",
       features: ["Sacred sites", "Cultural insights", "Comfortable stay", "Spiritual guidance"]
     },
     {
-      icon: Mountain,
+      image: "https://images.unsplash.com/photo-1626619876325-5ba12e7b6d9e?auto=format&fit=crop&w=400&q=80",
       title: "Ancient Temples",
       description: "Fabricate your beliefs",
       detail: "Explore ancient temples and their rich history with knowledgeable guides.",
       features: ["Historical context", "Architectural insights", "Cultural immersion", "Photography"]
     },
     {
-      icon: Heart,
+      image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=400&q=80",
       title: "Yoga Retreat",
       description: "Travel, health and life",
       detail: "Combine travel with wellness through our yoga and meditation retreats.",
@@ -142,12 +142,21 @@ const Services = () => {
     }
   ];
 
+  const handleLearnMore = (serviceName: string) => {
+    // Scroll to contact section or redirect to contact page with service info
+    window.location.href = `/contact?service=${encodeURIComponent(serviceName)}`;
+  };
+
   const renderServiceCard = (service: any, index: number) => (
     <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
       <CardHeader className="relative pb-4">
         <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full -translate-y-4 translate-x-4"></div>
-        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-          <service.icon className="w-8 h-8 text-white" />
+        <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg overflow-hidden">
+          <img 
+            src={service.image} 
+            alt={service.title}
+            className="w-full h-full object-cover rounded-2xl"
+          />
         </div>
         <CardTitle className="text-xl font-bold text-red-600 group-hover:text-red-700 transition-colors duration-300">
           {service.title}
@@ -166,7 +175,10 @@ const Services = () => {
             </div>
           ))}
         </div>
-        <Button className="w-full mt-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105">
+        <Button 
+          onClick={() => handleLearnMore(service.title)}
+          className="w-full mt-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105"
+        >
           Learn More
         </Button>
       </CardContent>

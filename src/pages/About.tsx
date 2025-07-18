@@ -1,44 +1,61 @@
 
 import React from 'react';
-import { Mountain, Users, Award, Heart, Compass, Camera, TreePine, Tent, Plane, Star } from 'lucide-react';
+import { Users, Award, Heart } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const About = () => {
   const highlights = [
     {
-      icon: Mountain,
+      icon: Users,
       title: "Expert Trekking",
-      description: "Specialized in Indian Himalayas trekking with experienced guides"
+      description: "Specialized in Indian Himalayas trekking with experienced guides",
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=400&q=80"
     },
     {
       icon: Users,
       title: "Versatility in Tourism",
-      description: "Complete range of adventure and spiritual tourism services"
+      description: "Complete range of adventure and spiritual tourism services",
+      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80"
     },
     {
       icon: Award,
       title: "Top Class Hospitality",
-      description: "Premium quality services and equipment for outstanding experiences"
+      description: "Premium quality services and equipment for outstanding experiences",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80"
     },
     {
       icon: Heart,
       title: "Tremendous Support",
-      description: "24/7 guidance with trusted local contacts and vendors"
+      description: "24/7 guidance with trusted local contacts and vendors",
+      image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=400&q=80"
     }
   ];
 
-  const destinations = [
-    "Leh-Ladakh", "Manali", "Shimla", "Haridwar", "Dehradun", "Nainital",
-    "Kathmandu", "Pokhara", "Mt. Everest Base Camp", "Tiger's Nest", "Thimphu", "Paro"
-  ];
-
   const services = [
-    { name: "Trekking", icon: Mountain },
-    { name: "Hiking", icon: Compass },
-    { name: "Camping", icon: Tent },
-    { name: "Paragliding", icon: Plane },
-    { name: "Bird Watching", icon: Camera },
-    { name: "Nature Walks", icon: TreePine }
+    { 
+      name: "Trekking", 
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=200&q=80"
+    },
+    { 
+      name: "Hiking", 
+      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=200&q=80"
+    },
+    { 
+      name: "Camping", 
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=200&q=80"
+    },
+    { 
+      name: "Paragliding", 
+      image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=200&q=80"
+    },
+    { 
+      name: "Bird Watching", 
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=200&q=80"
+    },
+    { 
+      name: "Nature Walks", 
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=200&q=80"
+    }
   ];
 
   return (
@@ -89,8 +106,12 @@ const About = () => {
           {highlights.map((item, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 bg-gradient-to-br from-blue-50 to-indigo-50">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-8 h-8 text-white" />
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
                 <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                   {item.title}
@@ -116,7 +137,13 @@ const About = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {services.map((service, index) => (
                 <div key={index} className="bg-white rounded-xl p-4 text-center group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                  <service.icon className="w-8 h-8 mx-auto mb-3 text-green-600 group-hover:text-green-700 group-hover:scale-110 transition-all duration-300" />
+                  <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden group-hover:scale-110 transition-all duration-300">
+                    <img 
+                      src={service.image} 
+                      alt={service.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <p className="text-sm font-medium text-gray-700">{service.name}</p>
                 </div>
               ))}
@@ -137,22 +164,6 @@ const About = () => {
             <p className="text-gray-600 text-lg leading-relaxed text-center max-w-4xl mx-auto">
               While you are on one of our trips, you will never feel any kind of uncertainty because of the support that you are going to get from our employees. They will guide you at every instance and share all the details of the location as per your convenience. We have established a lot of trustworthy contacts with local people and vendors over our travel destinations so your experience isn't going to be hampered with any kind of hindrance.
             </p>
-          </div>
-        </div>
-
-        {/* Destinations Section */}
-        <div className="mt-16">
-          <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Destinations</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {destinations.map((destination, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl p-4 text-center group hover:from-blue-200 hover:to-indigo-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg cursor-pointer"
-              >
-                <Star className="w-5 h-5 mx-auto mb-2 text-blue-600 group-hover:text-blue-700" />
-                <p className="font-medium text-gray-700 group-hover:text-gray-800">{destination}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
