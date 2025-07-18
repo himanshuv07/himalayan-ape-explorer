@@ -41,11 +41,11 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
         <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-            Where {' '}
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+            Begin Your{' '}
             <span className="text-blue-400 italic">Adventure</span>{' '}
-            Meets the
-            <span className="text-blue-400 italic"> Soul.</span>{' '}
+            with
+            <span className="text-blue-400 italic"> Himalayan Ape.</span>{' '}
           </h1>
           
           {/* Search Bar */}
