@@ -1,3 +1,4 @@
+
 import logo from '../assets/logo.png'; 
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
@@ -27,6 +28,8 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="/" className="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
+              <li><a href="/about" className="text-gray-300 hover:text-white transition-colors duration-200">About</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors duration-200">Services</a></li>
               <li><a href="/international" className="text-gray-300 hover:text-white transition-colors duration-200">International</a></li>
               <li><a href="/domestic" className="text-gray-300 hover:text-white transition-colors duration-200">Domestic</a></li>
               <li><a href="/religious" className="text-gray-300 hover:text-white transition-colors duration-200">Religious</a></li>

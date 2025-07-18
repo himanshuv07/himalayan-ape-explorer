@@ -37,6 +37,8 @@ const Navbar = () => {
   
   const navLinks = [
     { name: 'Home', path: '/', onClick: handleHomeClick },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
     { name: 'International', path: '/international' },
     { name: 'Domestic', path: '/domestic' },
     { name: 'Religious', path: '/religious' },
@@ -69,14 +71,14 @@ const Navbar = () => {
                 <button
                   key={link.name}
                   onClick={link.onClick}
-                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg hover:scale-105 ${
+                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                     location.pathname === link.path
                       ? isScrolled
                         ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                         : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                       : isScrolled
-                      ? 'text-gray-700'
-                      : 'text-white/80'
+                      ? 'text-gray-700 hover:scale-105'
+                      : 'text-white/80 hover:scale-105'
                   }`}                
                 >
                   {link.name}
@@ -85,14 +87,14 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg hover:scale-105 ${
+                  className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
                     location.pathname === link.path
                       ? isScrolled
                         ? 'text-gray-700 after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                         : 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-400'
                       : isScrolled
-                      ? 'text-gray-700'
-                      : 'text-white/80'
+                      ? 'text-gray-700 hover:scale-105'
+                      : 'text-white/80 hover:scale-105'
                   }`}                
                 >
                   {link.name}

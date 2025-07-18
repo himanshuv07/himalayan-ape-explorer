@@ -11,6 +11,8 @@ import International from "./pages/International";
 import Domestic from "./pages/Domestic";
 import Religious from "./pages/Religious";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const App = () => (
               <Route path="/international" element={<International />} />
               <Route path="/domestic" element={<Domestic />} />
               <Route path="/religious" element={<Religious />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
