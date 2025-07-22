@@ -13,14 +13,17 @@ interface DestinationCarouselProps {
   title: string;
   destinations: Destination[];
   subtitle?: string;
+  navigateTo: string; 
 }
 
-const DestinationCarousel: React.FC<DestinationCarouselProps> = ({ title, destinations, subtitle }) => {
+const DestinationCarousel: React.FC<DestinationCarouselProps> = ({ title, destinations, subtitle, navigateTo }) => {
   const navigate = useNavigate();
 
   const handleDestinationClick = (destinationName: string) => {
-    navigate('/international');
-  };
+  navigate(navigateTo);
+};
+
+
 
   return (
     <div className="py-16 bg-white">

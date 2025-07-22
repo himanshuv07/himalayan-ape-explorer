@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
-  const dropdownTimeoutRef = useRef(null); // 🔥 Correct way
+  const dropdownTimeoutRef = useRef(null);
 
   const location = useLocation();
   const navigate = useNavigate();
