@@ -9,7 +9,7 @@ const Domestic = () => {
       <div 
         className="relative text-white py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+          backgroundImage: `url('https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/a4/46/77.jpg')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>

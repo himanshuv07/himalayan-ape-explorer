@@ -1,12 +1,17 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.png';
 
+
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
+  const dropdownTimeoutRef = useRef(null); // 🔥 Correct way
+
   const location = useLocation();
   const navigate = useNavigate();
 
