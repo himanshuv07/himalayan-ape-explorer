@@ -105,12 +105,6 @@ const Index = () => {
         navigateTo="/domestic"
       />
 
-
-
-
-
-
-
       <VideoTestimonials />
       <FanbookTestimonials />
       <InstagramHighlights />
