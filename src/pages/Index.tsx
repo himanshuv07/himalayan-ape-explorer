@@ -75,6 +75,7 @@ const Index = () => {
       <BudgetSection />
 
       {/* Circular Gallery Section */}
+      
       {<div style={{ height: '600px', position: 'relative' }}>
         <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full ">
           Gallary
@@ -104,6 +105,17 @@ const Index = () => {
         destinations={RELIGIOUSDESTINATIONS}
         navigateTo="/domestic"
       />
+      <div className="relative top-10 flex justify-center items-center z-10">
+        <h2 className="text-4xl font-bold text-gray-800">Gallery</h2>
+      </div>
+      <div style={{ height: '600px', position: 'relative' }}>
+        <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
+      </div>
+
+
+      <DestinationCarousel title="International Destinations" destinations={InternationalDestinations} />
+      <DestinationCarousel title="Domestic Destinations" destinations={DOMESTICDESTINATIONS} />
+      <DestinationCarousel title="Religious Destinations" destinations={RELIGIOUSDESTINATIONS} />
 
       <VideoTestimonials />
       <FanbookTestimonials />

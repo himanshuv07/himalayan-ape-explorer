@@ -39,9 +39,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/', onClick: handleHomeClick },
-    { name: 'About', path: '/about' },
+    { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   const destinationLinks = [
