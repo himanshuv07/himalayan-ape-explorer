@@ -101,7 +101,7 @@ const PopupForm = ({
                 </div>
 
                 <h2 className="text-center text-2xl font-bold text-blue-700">
-                    🌍 Book Your First Trip & Get 75% Off!
+                  🌍Book Now & Unlock up to 75% Off On Your First Adventure!
                 </h2>
                 <p className="text-center text-gray-600 text-sm mb-6">
                   Unlock exclusive deals, personalized itineraries, and
