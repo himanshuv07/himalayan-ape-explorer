@@ -3,86 +3,58 @@ import { Dialog } from "@headlessui/react";
 import { X } from "lucide-react";
 
 const destinations = [
-  "Dubai",
-  "Singapore",
-  "Bali",
-  "Thailand",
-  "Maldives",
-  "Indonesia",
-  "Vietnam",
-  "Bhutan",
-  "Shimla",
-  "Manali",
-  "Kasol",
-  "Jibhi",
-  "Dharamshala",
-  "Haridwar",
-  "Rishikesh",
-  "Mussoorie",
-  "Auli",
-  "Nainital",
-  "Lansdowne",
-  "Kedarnath",
-  "Badrinath",
-  "Gangotri",
-  "Yamnotri",
-  "Kainchi Dham",
-  "Kailash Darshan",
-  "Devi Darshan Himachal",
-  "Other",
+  "Dubai", "Singapore", "Bali", "Thailand", "Maldives", "Indonesia", "Vietnam", "Bhutan",
+  "Shimla", "Manali", "Kasol", "Jibhi", "Dharamshala", "Haridwar", "Rishikesh", "Mussoorie", "Auli", "Nainital", "Lansdowne",
+  "Kedarnath", "Badrinath", "Gangotri", "Yamnotri", "Kainchi Dham", "Kailash Darshan", "Devi Darshan Himachal", "Other"
 ];
 
-const PopupForm = ({
-  open,
-  setOpen,
-}: {
-  open: boolean,
-  setOpen: (open: boolean) => void,
-}) => {
+type PopupFormProps = {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+};
+
+const PopupForm: React.FC<PopupFormProps> = ({ open, setOpen }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [destination, setDestination] = useState("");
   const [customDestination, setCustomDestination] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
 
+  // ✅ Show only on first page load (not route switch)
   useEffect(() => {
-    if (showThankYou) {
-      const timer = setTimeout(() => setShowThankYou(false), 4000);
-      return () => clearTimeout(timer);
+    const hasShown = sessionStorage.getItem("popupShown");
+    if (!hasShown) {
+      setOpen(true);
+      sessionStorage.setItem("popupShown", "true");
     }
-  }, [showThankYou]);
+  }, [setOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const finalDestination =
-      destination === "Other" ? customDestination : destination;
+    const finalDestination = destination === "Other" ? customDestination : destination;
     const message = `Name: ${name}\nPhone: ${phone}\nDestination: ${finalDestination}`;
-    const whatsappURL = `https://wa.me/917275223319?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappURL = `https://wa.me/917275223319?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
+
     setShowThankYou(true);
+    setTimeout(() => {
+      setOpen(false);
+      setShowThankYou(false);
+    }, 3000);
+
     setName("");
     setPhone("");
     setDestination("");
     setCustomDestination("");
-    setOpen(false);
   };
 
   return (
-    <Dialog
-      open={open}
-      onClose={() => setOpen(false)}
-      className="fixed inset-0 z-50 overflow-y-auto"
-    >
+    <Dialog open={open} onClose={() => setOpen(false)} className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex min-h-screen items-center justify-center bg-black/50 backdrop-blur-sm p-4">
         <Dialog.Panel className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl flex overflow-hidden border border-gray-200">
-          {/* Left: Form Section */}
+          {/* Left: Form */}
           <div className="w-full sm:w-1/2 p-8">
-            <button
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-              onClick={() => setOpen(false)}
-            >
+            <button onClick={() => setOpen(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
               <X size={24} />
             </button>
 
@@ -101,18 +73,17 @@ const PopupForm = ({
                 </div>
 
                 <h2 className="text-center text-2xl font-bold text-blue-700">
-                  🌍Book Now & Unlock up to 75% Off On Your First Adventure!
+                  🌍 Book Now & Unlock up to 75% Off!
                 </h2>
                 <p className="text-center text-gray-600 text-sm mb-6">
-                  Unlock exclusive deals, personalized itineraries, and
-                  unforgettable travel experiences with Himalayan Ape.
+                  Exclusive deals, custom itineraries, and wild adventures with Himalayan Ape!
                 </p>
 
                 <div>
                   <label className="block text-sm font-medium">Your Name</label>
                   <input
                     type="text"
-                    className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                    className="mt-1 w-full rounded-lg border px-4 py-3 text-sm"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -120,12 +91,10 @@ const PopupForm = ({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium">
-                    Phone Number
-                  </label>
+                  <label className="block text-sm font-medium">Phone Number</label>
                   <input
                     type="tel"
-                    className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                    className="mt-1 w-full rounded-lg border px-4 py-3 text-sm"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
@@ -133,60 +102,32 @@ const PopupForm = ({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium">
-                    Interested Destination
-                  </label>
+                  <label className="block text-sm font-medium">Interested Destination</label>
                   <select
-                    className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 bg-white focus:ring-2 focus:ring-indigo-500"
+                    className="mt-1 w-full rounded-md border px-4 py-2 bg-white"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     required
                   >
                     <option value="">Choose a destination</option>
                     <optgroup label="🌐 International">
-                      <option>Dubai</option>
-                      <option>Singapore</option>
-                      <option>Bali</option>
-                      <option>Thailand</option>
-                      <option>Maldives</option>
-                      <option>Indonesia</option>
-                      <option>Vietnam</option>
-                      <option>Bhutan</option>
+                      {destinations.slice(0, 8).map((d) => <option key={d} value={d}>{d}</option>)}
                     </optgroup>
                     <optgroup label="🏞️ Domestic">
-                      <option>Shimla</option>
-                      <option>Manali</option>
-                      <option>Kasol</option>
-                      <option>Jibhi</option>
-                      <option>Dharamshala</option>
-                      <option>Haridwar</option>
-                      <option>Rishikesh</option>
-                      <option>Mussoorie</option>
-                      <option>Auli</option>
-                      <option>Nainital</option>
-                      <option>Lansdowne</option>
+                      {destinations.slice(8, 18).map((d) => <option key={d} value={d}>{d}</option>)}
                     </optgroup>
                     <optgroup label="🕉️ Religious">
-                      <option>Kedarnath</option>
-                      <option>Badrinath</option>
-                      <option>Gangotri</option>
-                      <option>Yamnotri</option>
-                      <option>Kainchi Dham</option>
-                      <option>Kailash Darshan</option>
-                      <option>Devi Darshan Himachal</option>
+                      {destinations.slice(18).map((d) => <option key={d} value={d}>{d}</option>)}
                     </optgroup>
-                    <option value="Other">Other</option>
                   </select>
                 </div>
 
                 {destination === "Other" && (
                   <div>
-                    <label className="block text-sm font-medium">
-                      Please specify
-                    </label>
+                    <label className="block text-sm font-medium">Please specify</label>
                     <input
                       type="text"
-                      className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                      className="mt-1 w-full rounded-lg border px-4 py-3 text-sm"
                       value={customDestination}
                       onChange={(e) => setCustomDestination(e.target.value)}
                       required
@@ -196,22 +137,22 @@ const PopupForm = ({
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 px-6 rounded-xl hover:scale-105 transform transition-all duration-300 font-semibold shadow-md"
+                  className="w-full bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 rounded-xl hover:scale-105 transition-all"
                 >
-                  Get personalized WhatsApp plan
+                  Get WhatsApp Itinerary
                 </button>
               </form>
             )}
           </div>
 
-          {/* Right: Image Section */}
+          {/* Right: Image */}
           <div
             className="hidden sm:block w-1/2 bg-cover bg-center"
             style={{
               backgroundImage:
                 "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80')",
             }}
-          ></div>
+          />
         </Dialog.Panel>
       </div>
     </Dialog>
