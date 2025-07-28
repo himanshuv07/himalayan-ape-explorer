@@ -18,16 +18,22 @@ import kailashDarshanImg from '../assets/religious/kailash-darshan.jpg';
 import deviDarshanImg from '../assets/religious/devi-darshan.jpg';
 
 
-
-
 const Index = () => {
   const [openLeadForm, setOpenLeadForm] = useState(false);
-
-  // Auto open after delay (3 seconds)
+  // Auto open after delay (3 seconds), only once per session
   useEffect(() => {
-    const timer = setTimeout(() => setOpenLeadForm(true), 3000);
-    return () => clearTimeout(timer);
+    const hasPopupShown = sessionStorage.getItem('popup_shown');
+
+    if (!hasPopupShown) {
+      const timer = setTimeout(() => {
+        setOpenLeadForm(true);
+        sessionStorage.setItem('popup_shown', 'true');
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
+
 
   const InternationalDestinations = [
     { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80", packages: "Dubai Tour" },
