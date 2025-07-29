@@ -8,6 +8,7 @@ import FanbookTestimonials from '../components/FanbookTestimonials';
 import CircularGallery from '../components/CircularGallary';
 import PopupForm from '../components/PopupForm';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import haridwarImg from '../assets/religious/Haridwar.jpg';
 import kedarnathImg from '../assets/religious/Kedarnath.jpg';
@@ -19,22 +20,9 @@ import kailashDarshanImg from '../assets/religious/kailash-darshan.jpg';
 import deviDarshanImg from '../assets/religious/devi-darshan.jpg';
 
 const Index = () => {
-  const [openLeadForm, setOpenLeadForm] = useState(false);
-  // Auto open after delay (3 seconds), only once per session
-  useEffect(() => {
-    const hasPopupShown = sessionStorage.getItem('popup_shown');
-
-    if (!hasPopupShown) {
-      const timer = setTimeout(() => {
-        setOpenLeadForm(true);
-        sessionStorage.setItem('popup_shown', 'true');
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-
-const Index = () => {
   const [openLeadForm, setOpenLeadForm] = useState<boolean>(false);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,28 +32,18 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
   const InternationalDestinations = [
     { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80", packages: "Dubai Tour" },
     { name: "Singapore", image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80", packages: "Singapore Packages" },
     { name: "Bali", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", packages: "Bali Tour" },
-    { name: "Thailand", image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80", packages: "Thailand Tour" },
     { name: "Maldives", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80", packages: "Maldives Packages" },
     { name: "Indonesia", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", packages: "Indonesia Tour" },
-    { name: "Vietnam", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80", packages: "Vietnam Tour" },
-    { name: "Bhutan", image: "https://images.unsplash.com/photo-1506748686136-46273834b2fe?auto=format&fit=crop&w=800&q=80", packages: "Bhutan Tour" }
   ];
 
   const DOMESTICDESTINATIONS = [
-    { name: "Shimla", image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80", packages: "Shimla Trip" },
     { name: "Manali", image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80", packages: "Manali Trip" },
     { name: "Kasol", image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80", packages: "Kasol Packages" },
-    { name: "Jibhi", image: "https://images.unsplash.com/photo-1486308510493-cb8164a78f4b?auto=format&fit=crop&w=800&q=80", packages: "Jibhi Trip" },
     { name: "Dharamshala", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", packages: "Dharamshala Packages" },
-    { name: "Haridwar", image: "https://images.unsplash.com/photo-1454023492551-1d03dfd1c6f4?auto=format&fit=crop&w=800&q=80", packages: "Haridwar City Tour" },
-    { name: "Rishikesh", image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80", packages: "Rishikesh Adventure" },
-    { name: "Mussoorie", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", packages: "Mussoorie Tour" },
-    { name: "Auli", image: "https://images.unsplash.com/photo-1517816428103-8b85a0e65ded?auto=format&fit=crop&w=800&q=80", packages: "Auli Trip" },
     { name: "Nainital", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80", packages: "Nainital Packages" },
     { name: "Lansdowne", image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80", packages: "Lansdowne Tour" }
   ];
@@ -92,8 +70,27 @@ const Index = () => {
           Gallary
         </div>
         <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
+        <div>
+          {/* Your gallery preview components here */}
+
+          <div className="viewMore mt-4 flex justify-center">
+            <button
+              type="button"
+              onClick={() => navigate('/gallery')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md"
+            >
+              View more
+            </button>
+          </div>
+        </div>
       </div>
 
+      <DestinationCarousel
+        title="Religious Destinations"
+        subtitle="Sacred places to find peace and divinity"
+        destinations={RELIGIOUSDESTINATIONS}
+        navigateTo="/religious"
+      />
       <DestinationCarousel
         title="International Destinations"
         subtitle="Travel the world with us"
@@ -108,12 +105,6 @@ const Index = () => {
         navigateTo="/domestic"
       />
 
-      <DestinationCarousel
-        title="Religious Destinations"
-        subtitle="Sacred places to find peace and divinity"
-        destinations={RELIGIOUSDESTINATIONS}
-        navigateTo="/religious"
-      />
 
       <VideoTestimonials />
       <FanbookTestimonials />
@@ -131,7 +122,7 @@ const Index = () => {
       <div
         className="relative text-white py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')`
+          backgroundImage: "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')"
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0"></div>
