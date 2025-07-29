@@ -3,16 +3,19 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import TrustIndicators from './TrustIndicators';
 
+import hero1 from '../assets/Hero Images/IMG_0072-01.webp';
+import hero2 from '../assets/Hero Images/IMG_20180207_173512_BURST15-01.webp';
+import hero3 from '../assets/Hero Images/IMG_3034-01-01.webp';
+import hero4 from '../assets/Hero Images/IMG_9737-01.webp';
+import hero5 from '../assets/Hero Images/IMG_3646.webp';
+import hero6 from '../assets/Hero Images/IMG_3675.webp';
+
+
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const backgroundImages = [
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
-  ];
+  const backgroundImages = [hero4, hero2, hero3, hero1, hero6, hero5];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,18 +27,19 @@ const Hero = () => {
   return (
     <div className="relative h-[100vh] flex items-center justify-center overflow-hidden">
       {/* Background Image Slider */}
-      {backgroundImages.map((image, index) => (
+      {backgroundImages.map((img, i) => (
         <div
-          key={index}
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+          key={i}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${i === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           style={{
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${img})`,
           }}
-        >
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
+        />
       ))}
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30 z-0"></div>
+
 
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
@@ -61,3 +65,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
