@@ -1,11 +1,10 @@
 
 import React from 'react';
 import ContactForm from '../components/ContactForm';
-
 const Contact = () => {
   return (
     <div className="pt-16">
-      <div 
+      <div
         className="relative text-white py-20 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
@@ -19,10 +18,8 @@ const Contact = () => {
           </p>
         </div>
       </div>
-
       <ContactForm />
     </div>
   );
 };
-
 export default Contact;

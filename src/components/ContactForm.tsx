@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -18,7 +17,7 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    
+
     // Prepare WhatsApp message
     const destination = formData.destination === 'custom' ? formData.customDestination : formData.destination;
     const message = `*New Travel Enquiry*
@@ -33,10 +32,10 @@ Number of Persons: ${formData.persons}
 Please contact me for more details about this trip.`;
 
     // Send to WhatsApp
-    const whatsappNumber = '917275223319';
+    const whatsappNumber = '917909674407';
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
-    
+
     toast({
       title: "Enquiry Submitted!",
       description: "Your enquiry has been sent to WhatsApp. We'll contact you within 24 hours.",
@@ -144,7 +143,7 @@ Please contact me for more details about this trip.`;
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                   >
-                    {[1,2,3,4,5,6,7,8,9,10].map(num => (
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
                       <option key={num} value={num}>{num} Person{num > 1 ? 's' : ''}</option>
                     ))}
                   </select>
@@ -229,7 +228,7 @@ Please contact me for more details about this trip.`;
           <div className="space-y-8">
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">

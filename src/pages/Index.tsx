@@ -8,6 +8,7 @@ import FanbookTestimonials from '../components/FanbookTestimonials';
 import CircularGallery from '../components/CircularGallary';
 import PopupForm from '../components/PopupForm';
 import { useEffect, useState } from 'react';
+
 import haridwarImg from '../assets/religious/Haridwar.jpg';
 import kedarnathImg from '../assets/religious/Kedarnath.jpg';
 import badrinathImg from '../assets/religious/Badrinath.jpg';
@@ -16,7 +17,6 @@ import yamnotriImg from '../assets/religious/Yamnotri.jpg';
 import kainchiDhamImg from '../assets/religious/Kaichi dham.jpg';
 import kailashDarshanImg from '../assets/religious/kailash-darshan.jpg';
 import deviDarshanImg from '../assets/religious/devi-darshan.jpg';
-
 
 const Index = () => {
   const [openLeadForm, setOpenLeadForm] = useState(false);
@@ -32,6 +32,16 @@ const Index = () => {
 
       return () => clearTimeout(timer);
     }
+
+const Index = () => {
+  const [openLeadForm, setOpenLeadForm] = useState<boolean>(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpenLeadForm(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
 
@@ -71,27 +81,18 @@ const Index = () => {
     { name: "Devi Darshan Himachal", image: deviDarshanImg, packages: "Devi Darshan Himachal" }
   ];
 
-
-
-
   return (
     <div>
       <Hero />
       <SuperHitStarters />
       <BudgetSection />
 
-      {/* Circular Gallery Section */}
-      
-      {<div style={{ height: '600px', position: 'relative' }}>
-        <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full ">
+      <div style={{ height: '600px', position: 'relative' }}>
+        <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full">
           Gallary
         </div>
         <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
-      </div>}
-
-
-      {/* Destination Sections */}
-
+      </div>
 
       <DestinationCarousel
         title="International Destinations"
@@ -99,29 +100,20 @@ const Index = () => {
         destinations={InternationalDestinations}
         navigateTo="/international"
       />
+
       <DestinationCarousel
         title="Domestic Destinations"
         subtitle="Explore India's spiritual beauty"
         destinations={DOMESTICDESTINATIONS}
         navigateTo="/domestic"
       />
+
       <DestinationCarousel
-        title="Domestic Destinations"
+        title="Religious Destinations"
         subtitle="Sacred places to find peace and divinity"
         destinations={RELIGIOUSDESTINATIONS}
-        navigateTo="/domestic"
+        navigateTo="/religious"
       />
-      <div className="relative top-10 flex justify-center items-center z-10">
-        <h2 className="text-4xl font-bold text-gray-800">Gallery</h2>
-      </div>
-      <div style={{ height: '600px', position: 'relative' }}>
-        <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
-      </div>
-
-
-      <DestinationCarousel title="International Destinations" destinations={InternationalDestinations} />
-      <DestinationCarousel title="Domestic Destinations" destinations={DOMESTICDESTINATIONS} />
-      <DestinationCarousel title="Religious Destinations" destinations={RELIGIOUSDESTINATIONS} />
 
       <VideoTestimonials />
       <FanbookTestimonials />
@@ -156,7 +148,7 @@ const Index = () => {
               Plan Your Trip
             </a>
             <a
-              href="https://wa.me/917275223319"
+              href="https://wa.me/917909674407"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
@@ -166,7 +158,7 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
