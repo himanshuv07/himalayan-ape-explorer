@@ -7,7 +7,17 @@ import {
   Texture,
   Transform,
 } from "ogl";
-import { useEffect, useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import image1 from "../assets/Gallery-Images/IMG_9826-01-01.webp";
+import image2 from "../assets/Gallery-Images/IMG_9694-01.webp";
+import image3 from "../assets/Gallery-Images/IMG_9958-01.webp";
+import image4 from "../assets/Gallery-Images/IMG_9723-01.webp";
+import image5 from "../assets/Gallery-Images/IMG_9042-01.webp";
+import image6 from "../assets/Gallery-Images/IMG_3605.webp";
+import image7 from "../assets/Gallery-Images/IMG_3724.webp";
+import image8 from "../assets/Gallery-Images/IMG_3557.webp";
+import image9 from "../assets/Gallery-Images/GOPR0827.webp";
+import image10 from "../assets/Gallery-Images/IMG_20180401_073448-01-01-01.webp";
 
 function debounce(func, wait) {
   let timeout;
@@ -18,7 +28,9 @@ function debounce(func, wait) {
 }
 
 function lerp(p1, p2, t) {
-  return p1 + (p2 - p1) * t;
+  const delta = p2 - p1;
+  const velocity = delta * t;
+  return Math.abs(velocity) < 0.001 ? p2 : p1 + velocity;
 }
 
 function autoBind(instance) {
@@ -170,7 +182,7 @@ class Media {
         void main() {
           vUv = uv;
           vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
+          // p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * 0.1; 
           gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
         }
       `,
@@ -362,52 +374,44 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`,
-        text: "Bridge",
+        image: image1,
+        text: "Shimla",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
-        text: "Desk Setup",
+        image: image2,
+        text: "Manali",
       },
       {
-        image: `https://picsum.photos/seed/3/800/600?grayscale`,
-        text: "Waterfall",
+        image: image3,
+        text: "Kasol",
       },
       {
-        image: `https://picsum.photos/seed/4/800/600?grayscale`,
-        text: "Strawberries",
+        image: image4,
+        text: "Jibhi",
       },
       {
-        image: `https://picsum.photos/seed/5/800/600?grayscale`,
-        text: "Deep Diving",
+        image: image5,
+        text: "Dharamshala",
       },
       {
-        image: `https://picsum.photos/seed/16/800/600?grayscale`,
-        text: "Train Track",
+        image: image6,
+        text: "Haridwar",
       },
       {
-        image: `https://picsum.photos/seed/17/800/600?grayscale`,
-        text: "Santorini",
+        image: image7,
+        text: "Rishikesh",
       },
       {
-        image: `https://picsum.photos/seed/8/800/600?grayscale`,
-        text: "Blurry Lights",
+        image: image8,
+        text: "Mussoorie",
       },
       {
-        image: `https://picsum.photos/seed/9/800/600?grayscale`,
-        text: "New York",
+        image: image9,
+        text: "Auli",
       },
       {
-        image: `https://picsum.photos/seed/10/800/600?grayscale`,
-        text: "Good Boy",
-      },
-      {
-        image: `https://picsum.photos/seed/21/800/600?grayscale`,
-        text: "Coastline",
-      },
-      {
-        image: `https://picsum.photos/seed/12/800/600?grayscale`,
-        text: "Palm Trees",
+        image: image10,
+        text: "Nainital",
       },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
@@ -537,6 +541,7 @@ export default function CircularGallery({
   scrollSpeed = 2,
   scrollEase = 0.05,
 }) {
+  const appRef = useRef(null);
   const containerRef = useRef(null);
   useEffect(() => {
     const app = new App(containerRef.current, {
@@ -548,14 +553,25 @@ export default function CircularGallery({
       scrollSpeed,
       scrollEase,
     });
+    appRef.current = app;
     return () => {
       app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
   return (
-    <div
-      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
-      ref={containerRef}
-    />
+    <div className="w-full h-full overflow-hidden relative" ref={containerRef}>
+      <button
+        className="absolute top-1/2 left-4 z-10 bg-black/50 text-white px-3 py-2 rounded-full transform -translate-y-1/2"
+        onClick={() => appRef.current?.scrollBy(-1)}
+      >
+        &#8249;
+      </button>
+      <button
+        className="absolute top-1/2 right-4 z-10 bg-black/50 text-white px-3 py-2 rounded-full transform -translate-y-1/2"
+        onClick={() => appRef.current?.scrollBy(1)}
+      >
+        &#8250;
+      </button>
+    </div>
   );
 }
