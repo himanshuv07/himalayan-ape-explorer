@@ -1,89 +1,183 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const FullGallery = () => {
-  const [selectedLocation, setSelectedLocation] = useState("All");
-  const [images, setImages] = useState([]);
+  const [filter, setFilter] = useState("All");
 
-  useEffect(() => {
-    const importImages = async () => {
-      const manali = import.meta.glob("../assets/Manali/*", {
-        eager: true,
-        as: "url",
-      });
-      const shimla = import.meta.glob("../assets/Shimla/*", {
-        eager: true,
-        as: "url",
-      });
-      const kasol = import.meta.glob("../assets/Kasol/*", {
-        eager: true,
-        as: "url",
-      });
+  const galleryData = [
+    {
+      category: "Manali",
+      images: [
+        "https://i.postimg.cc/kXxG6hKq/GOPR0969.jpg",
+        "https://i.postimg.cc/PrGNqkLS/GOPR1009.jpg",
+        "https://i.postimg.cc/8cv5bZYd/GOPR1065.jpg",
+        "https://i.postimg.cc/dVw18mjd/GOPR1066.jpg",
+        "https://i.postimg.cc/52gtpYsr/IMG-3518.jpg",
+        "https://i.postimg.cc/XvDY6MSc/IMG-3522.jpg",
+        "https://i.postimg.cc/d00VfsXV/IMG-3527.jpg",
+        "https://i.postimg.cc/RF6VMPvr/IMG-3531.jpg",
+        "https://i.postimg.cc/0j7kSb6c/IMG-3559.jpg",
+        "https://i.postimg.cc/XN57mD2d/IMG-3572.jpg",
+        "https://i.postimg.cc/fTjWTSQb/IMG-3587.jpg",
+        "https://i.postimg.cc/nctcJY55/IMG-3605.jpg",
+        "https://i.postimg.cc/HkYYJWT9/IMG-3608.jpg",
+        "https://i.postimg.cc/cLFsfqHy/IMG-3610.jpg",
+        "https://i.postimg.cc/rpbMYSxf/IMG-3620.jpg",
+        "https://i.postimg.cc/hjdcFf0c/IMG-3629.jpg",
+        "https://i.postimg.cc/hPggw4QR/IMG-3637.jpg",
+        "https://i.postimg.cc/WzcjsT9r/IMG-3642.jpg",
+        "https://i.postimg.cc/QCgDtwPz/IMG-3644.jpg",
+        "https://i.postimg.cc/VLR1cyXr/IMG-3646.jpg",
+        "https://i.postimg.cc/nhhxFd1d/IMG-3650.jpg",
+        "https://i.postimg.cc/mgpstQXT/IMG-3653.jpg",
+        "https://i.postimg.cc/8CFVWj9M/IMG-3660.jpg",
+        "https://i.postimg.cc/J08w9Kn5/IMG-3675.jpg",
+        "https://i.postimg.cc/Cx5yTRFX/IMG-3680.jpg",
+        "https://i.postimg.cc/DyBVMrK1/IMG-3690.jpg",
+        "https://i.postimg.cc/JhH90SHQ/IMG-3706.jpg",
+        "https://i.postimg.cc/ZRkXdjrz/IMG-3709.jpg",
+        "https://i.postimg.cc/d3wXW1HW/IMG-3716.jpg",
+        "https://i.postimg.cc/3N1qzTz3/IMG-3732.jpg",
+        "https://i.postimg.cc/7Pnj53hj/IMG-3741.jpg",
+        "https://i.postimg.cc/QxNw1FWC/IMG-3751.jpg",
+        "https://i.postimg.cc/DyCDg7qg/IMG-3757.jpg",
+        "https://i.postimg.cc/cLrzkPhN/IMG-3770.jpg",
+        "https://i.postimg.cc/fRprG5qS/IMG-3778.jpg",
+        "https://i.postimg.cc/rp4PMW7n/IMG-3780.jpg",
+        "https://i.postimg.cc/pTYcnvWK/IMG-3792.jpg",
+        "https://i.postimg.cc/LXM0X5pH/IMG-3799.jpg",
+        "https://i.postimg.cc/SQYJqKKX/IMG-3804.jpg",
+      ],
+    },
 
-      const manaliImages = Object.values(manali).map((src) => ({
-        src,
-        location: "Manali",
-      }));
-      const shimlaImages = Object.values(shimla).map((src) => ({
-        src,
-        location: "Shimla",
-      }));
-      const kasolImages = Object.values(kasol).map((src) => ({
-        src,
-        location: "Kasol",
-      }));
+    // 🌲 Kasol Images
+    {
+      category: "Kasol",
+      images: [
+        "https://i.postimg.cc/pL2QcjBb/GOPR0702.jpg",
+        "https://i.postimg.cc/5trwtRWb/GOPR0703.jpg",
+        "https://i.postimg.cc/8kMh14Kg/GOPR0722.jpg",
+        "https://i.postimg.cc/nh04yLds/GOPR0731.jpg",
+        "https://i.postimg.cc/7LzLgsTx/GOPR0746.jpg",
+        "https://i.postimg.cc/4xqdHkyL/GOPR0750.jpg",
+        "https://i.postimg.cc/BZk8CcGz/GOPR0763.jpg",
+        "https://i.postimg.cc/Gtm7ks6y/GOPR0770.jpg",
+        "https://i.postimg.cc/7LrKH9mV/GOPR0794.jpg",
+        "https://i.postimg.cc/NM3zLkYM/GOPR0802.jpg",
+        "https://i.postimg.cc/TPtxW9XW/GOPR0812.jpg",
+        "https://i.postimg.cc/fbJpTnCR/GOPR0823.jpg",
+        "https://i.postimg.cc/GpPS7mzn/GOPR0826.jpg",
+        "https://i.postimg.cc/cJWMWDPW/GOPR0828.jpg",
+      ],
+    },
 
-      const all = [...shimlaImages, ...manaliImages, ...kasolImages];
-      console.log("Loaded images:", all); // 🐞 Debug log
-
-      setImages(all);
-    };
-
-    importImages();
-  }, []);
+    // 🏘️ Shimla Images
+    {
+      category: "Shimla",
+      images: [
+        "https://i.postimg.cc/yYwhB5BK/2017-09-25-22-10-54-01.jpg",
+        "https://i.postimg.cc/ZqL685NY/2017-09-25-22-18-38-01.jpg",
+        "https://i.postimg.cc/J0sJC32t/DSCN1050-01.jpg",
+        "https://i.postimg.cc/mZnCNqP9/DSCN1102-01.jpg",
+        "https://i.postimg.cc/J4BJTqX2/FKN-7884-01.jpg",
+        "https://i.postimg.cc/pLfjvLqQ/IMG-0072-01.jpg",
+        "https://i.postimg.cc/MpQCKhQm/IMG-20170820-125852-01.jpg",
+        "https://i.postimg.cc/GpP6vGzB/IMG-20171103-150342-HDR-01.jpg",
+        "https://i.postimg.cc/R0xj3X15/IMG-20180207-173512-BURST15-01.jpg",
+        "https://i.postimg.cc/507vrKpZ/IMG-20180210-092756-01.jpg",
+        "https://i.postimg.cc/43GzH9mF/IMG-20180401-073448-01.jpg",
+        "https://i.postimg.cc/6qFZW7kc/IMG-2586-01.jpg",
+        "https://i.postimg.cc/pdPFLM6w/IMG-3034-01-01.jpg",
+        "https://i.postimg.cc/rmmR5Ccg/IMG-3613-01.jpg",
+        "https://i.postimg.cc/XvxyZDMp/IMG-3790-01.jpg",
+        "https://i.postimg.cc/nzPj2jhx/IMG-4282-01.jpg",
+        "https://i.postimg.cc/8cvRrBB9/IMG-4304-01.jpg",
+        "https://i.postimg.cc/cLSmwjzm/IMG-4329-01.jpg",
+        "https://i.postimg.cc/vHW7Yhm6/IMG-4335-01.jpg",
+        "https://i.postimg.cc/c4YhKZFC/IMG-4820-01-01.jpg",
+        "https://i.postimg.cc/j2yfjqRr/IMG-5281-01.jpg",
+        "https://i.postimg.cc/7YM78LB3/IMG-5282-01.jpg",
+        "https://i.postimg.cc/LssjVM3z/IMG-5323-01.jpg",
+        "https://i.postimg.cc/Hn0JgStY/IMG-5488-01.jpg",
+        "https://i.postimg.cc/mrhFHyTj/IMG-5594-01.jpg",
+        "https://i.postimg.cc/tTxZrRZV/IMG-5600-01.jpg",
+        "https://i.postimg.cc/tRFnWTGK/IMG-7511-01.jpg",
+        "https://i.postimg.cc/L5FqGdLQ/IMG-7535-01.jpg",
+        "https://i.postimg.cc/qM0hLTkz/IMG-7577-01-01.jpg",
+        "https://i.postimg.cc/9Fp4gnM1/IMG-7745-01.jpg",
+        "https://i.postimg.cc/wjj1CQRz/IMG-7784-01.jpg",
+        "https://i.postimg.cc/7LCf6PNQ/IMG-7787-01.jpg",
+        "https://i.postimg.cc/htZXcQVd/IMG-7797-01-01.jpg",
+        "https://i.postimg.cc/W4QtJRWp/IMG-7807-01.jpg",
+        "https://i.postimg.cc/hjTvLC6L/IMG-7835-01.jpg",
+        "https://i.postimg.cc/prvTqfMg/IMG-8092-01.jpg",
+        "https://i.postimg.cc/7hNLc5xb/IMG-8968-01.jpg",
+        "https://i.postimg.cc/tRd77Mhy/IMG-9020-01.jpg",
+        "https://i.postimg.cc/xT08m3Rm/IMG-9024-01.jpg",
+        "https://i.postimg.cc/7Ym6nJsW/IMG-9042-01.jpg",
+        "https://i.postimg.cc/W1z4Wpxb/IMG-9069-01.jpg",
+        "https://i.postimg.cc/8zYzqQVd/IMG-9071-02.jpg",
+        "https://i.postimg.cc/1zN3SC9k/IMG-9078-01.jpg",
+        "https://i.postimg.cc/26R8SQyV/IMG-9686-01.jpg",
+        "https://i.postimg.cc/ZnJbrJrm/IMG-9694-01.jpg",
+        "https://i.postimg.cc/50B9YXQp/IMG-9695-01.jpg",
+        "https://i.postimg.cc/zvpJ74jg/IMG-9719-01.jpg",
+        "https://i.postimg.cc/Y2xqtmHC/IMG-9723-01.jpg",
+        "https://i.postimg.cc/0225j2kd/IMG-9724-01.jpg",
+        "https://i.postimg.cc/CLPhqTdy/IMG-9737-01.jpg",
+        "https://i.postimg.cc/yN9stDjB/IMG-9744-01.jpg",
+        "https://i.postimg.cc/Y0Scr06v/IMG-9763-01.jpg",
+        "https://i.postimg.cc/j23pLTcZ/IMG-9770-01.jpg",
+        "https://i.postimg.cc/MZs2s0wV/IMG-9772-01.jpg",
+        "https://i.postimg.cc/0QnR1Dwg/IMG-9826-01-01.jpg",
+        "https://i.postimg.cc/tCY081Rf/IMG-9843-01.jpg",
+        "https://i.postimg.cc/vHkRyQcm/IMG-9958-01.jpg",
+        "https://i.postimg.cc/Jn4ZPC3N/sd-7901-01.jpg",
+      ],
+    },
+  ];
 
   const filteredImages =
-    selectedLocation === "All"
-      ? images
-      : images.filter((img) => img.location === selectedLocation);
+    filter === "All"
+      ? galleryData.flatMap((item) => item.images)
+      : galleryData.find((item) => item.category === filter)?.images || [];
 
   return (
-    <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-gray-50 to-gray-200">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
-          Explore Our Travel Gallery
-        </h1>
+    <div className="py-10 px-4 max-w-7xl mx-auto">
+      <h2 className="text-3xl font-bold mb-6 text-center">Gallery</h2>
 
-        {/* FILTER BUTTONS */}
-        <div className="flex flex-wrap gap-3 justify-center mb-10">
-          {["All", "Shimla", "Manali", "Kasol"].map((loc) => (
-            <button
-              key={loc}
-              onClick={() => setSelectedLocation(loc)}
-              className={`px-4 py-2 rounded-full border text-sm font-semibold shadow-sm transition ${
-                selectedLocation === loc
-                  ? "bg-blue-600 text-white"
-                  : "bg-white text-gray-800 hover:bg-blue-100"
-              }`}
-            >
-              {loc}
-            </button>
-          ))}
-        </div>
+      <div className="flex justify-center gap-4 mb-8 flex-wrap">
+        {["All", "Kasol", "Manali", "Shimla"].map((cat) => (
+          <button
+            key={cat}
+            className={`px-4 py-2 rounded-full border ${
+              filter === cat
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-600"
+            } hover:bg-blue-700 hover:text-white transition`}
+            onClick={() => setFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
-        {/* IMAGE GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {filteredImages.map((img, i) => (
-            <motion.img
-              key={i}
-              src={img.src}
-              alt={`${img.location} ${i}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full h-64 object-cover rounded-lg shadow-md"
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {filteredImages.map((url, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.05 }}
+            className="overflow-hidden rounded-lg shadow-md"
+          >
+            <img
+              src={url}
+              alt={`Image ${idx}`}
+              className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

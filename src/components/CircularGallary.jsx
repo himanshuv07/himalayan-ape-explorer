@@ -8,16 +8,6 @@ import {
   Transform,
 } from "ogl";
 import React, { useRef, useEffect, useState } from "react";
-import image1 from "../assets/Gallery-Images/IMG_9826-01-01.webp";
-import image2 from "../assets/Gallery-Images/IMG_9694-01.webp";
-import image3 from "../assets/Gallery-Images/IMG_9958-01.webp";
-import image4 from "../assets/Gallery-Images/IMG_9723-01.webp";
-import image5 from "../assets/Gallery-Images/IMG_9042-01.webp";
-import image6 from "../assets/Gallery-Images/IMG_3605.webp";
-import image7 from "../assets/Gallery-Images/IMG_3724.webp";
-import image8 from "../assets/Gallery-Images/IMG_3557.webp";
-import image9 from "../assets/Gallery-Images/GOPR0827.webp";
-import image10 from "../assets/Gallery-Images/IMG_20180401_073448-01-01-01.webp";
 
 function debounce(func, wait) {
   let timeout;
@@ -374,46 +364,49 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: image1,
+        image: "https://i.postimg.cc/5yhSWKDg/IMG-9826-01-01.webp",
         text: "Shimla",
       },
       {
-        image: image2,
+        image: "https://i.postimg.cc/tTmz245L/IMG-9694-01.webp",
         text: "Manali",
       },
       {
-        image: image3,
+        image: "https://i.postimg.cc/hvz1wRZh/IMG-9958-01.webp",
         text: "Kasol",
       },
       {
-        image: image4,
+        image: "https://i.postimg.cc/xCdRvzKv/IMG-9723-01.webp",
         text: "Jibhi",
       },
       {
-        image: image5,
+        image: "https://i.postimg.cc/R0ddJRnC/IMG-9042-01.webp",
         text: "Dharamshala",
       },
       {
-        image: image6,
+        image: "https://i.postimg.cc/v8NPv32c/IMG-3605.webp",
         text: "Haridwar",
       },
       {
-        image: image7,
+        image: "https://i.postimg.cc/Dy4xpLR5/IMG-3724.webp",
         text: "Rishikesh",
       },
       {
-        image: image8,
+        image: "https://i.postimg.cc/hGcMGwv3/IMG-3557.webp",
         text: "Mussoorie",
       },
       {
-        image: image9,
+        image: "https://i.postimg.cc/0ygcTrsv/GOPR0827.webp",
         text: "Auli",
       },
       {
-        image: image10,
+        image:
+          "https://i.postimg.cc/1X2J53Vp/IMG-20180401-073448-01-01-01.webp",
         text: "Nainital",
       },
     ];
+
+
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {

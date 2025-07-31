@@ -13,7 +13,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
-// import FullGallery from "./components/FullGallery";
+import FullGallery from "./components/FullGallery";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +35,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
-              {/* <Route path="/gallery" element={<FullGallery />} /> */}
+              <Route path="/gallery" element={<FullGallery />} />
             </Routes>
           </main>
           <Footer />
