@@ -76,7 +76,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ open, setOpen }) => {
                   🌍 Book Now & Unlock up to 75% Off!
                 </h2>
                 <p className="text-center text-gray-600 text-sm mb-6">
-                  Scrolling is fun, Travelling is better with Himalayan Ape!
+                  Scrolling is fun but Travelling is better with Himalayan Ape!
                 </p>
 
                 <div>
