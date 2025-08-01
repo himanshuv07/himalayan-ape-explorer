@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import TrustIndicators from './TrustIndicators';
 
+import hero1 from '../assets/Hero Images/IMG_0072-01.webp';
+import hero2 from '../assets/Hero Images/IMG_20180207_173512_BURST15-01.webp';
+import hero3 from '../assets/Hero Images/IMG_3034-01-01.webp';
+import hero4 from '../assets/Hero Images/IMG_9737-01.webp';
+import hero5 from '../assets/Hero Images/IMG_3646.webp';
+import hero6 from '../assets/Hero Images/IMG_3675.webp';
+
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const backgroundImages = [
-    'https://i.postimg.cc/Kj95bvfv/IMG-9737-01.webp',
-    'https://i.postimg.cc/rmNJh9t4/IMG-20180207-173512-BURST15-01.webp',
-    'https://i.postimg.cc/cHShMz6Z/IMG-3034-01-01.webp',
-    'https://i.postimg.cc/kMwsKfC3/IMG-0072-01.webp',
-    'https://i.postimg.cc/RhCT2ncD/IMG-3675.webp',
-    'https://i.postimg.cc/FKcGSvrD/IMG-3646.webp',
-  ];
+  const backgroundImages = [hero4, hero2, hero3, hero1, hero5];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,7 +39,9 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
         <div className="animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            Begin Your <span className="text-green-400">Adventure</span> with
+            Begin Your{' '}
+            <span className="text-green-400">Adventure</span>{' '}
+            with
             <span className="text-blue-400"> Himalayan Ape.</span>
           </h1>
 

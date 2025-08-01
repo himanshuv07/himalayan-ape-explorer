@@ -60,14 +60,14 @@ const FullGallery = () => {
         "https://i.postimg.cc/nh04yLds/GOPR0731.jpg",
         "https://i.postimg.cc/7LzLgsTx/GOPR0746.jpg",
         "https://i.postimg.cc/4xqdHkyL/GOPR0750.jpg",
-        "https://i.postimg.cc/BZk8CcGz/GOPR0763.jpg",
-        "https://i.postimg.cc/Gtm7ks6y/GOPR0770.jpg",
-        "https://i.postimg.cc/7LrKH9mV/GOPR0794.jpg",
-        "https://i.postimg.cc/NM3zLkYM/GOPR0802.jpg",
-        "https://i.postimg.cc/TPtxW9XW/GOPR0812.jpg",
-        "https://i.postimg.cc/fbJpTnCR/GOPR0823.jpg",
-        "https://i.postimg.cc/GpPS7mzn/GOPR0826.jpg",
-        "https://i.postimg.cc/cJWMWDPW/GOPR0828.jpg",
+        "https://i.postimg.cc/tCmR8Q3q/GOPR0810.jpg",
+        "https://i.postimg.cc/MH3xkVjP/GOPR0826.jpg",
+        "https://i.postimg.cc/J729L122/GOPR0840.jpg",
+        "https://i.postimg.cc/2yMJFwWD/GOPR0841.jpg",
+        "https://i.postimg.cc/P5QHhgZv/GOPR0842.jpg",
+        "https://i.postimg.cc/GtD0fVd2/GOPR0959.jpg",
+        "https://i.postimg.cc/YCpVNhGj/GOPR0962.jpg",
+        "https://i.postimg.cc/jdYB58RH/GOPR0983.jpg",
       ],
     },
 
@@ -143,7 +143,7 @@ const FullGallery = () => {
       : galleryData.find((item) => item.category === filter)?.images || [];
 
   return (
-    <div className="py-10 px-4 max-w-7xl mx-auto">
+    <div className="py-20 px-4 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold mb-6 text-center">Gallery</h2>
 
       <div className="flex justify-center gap-4 mb-8 flex-wrap">
