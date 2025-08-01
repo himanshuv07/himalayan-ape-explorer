@@ -92,16 +92,27 @@ const Index = () => {
 
       {/* Circular Gallery Section */}
       
-      {<div style={{ height: '600px', position: 'relative' }}>
-        <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full ">
+      <div style={{ height: '600px', position: 'relative' }}>
+        <div className="gallary align-center text-4xl font-bold text-gray-800 absolute top-10 left-0 right-0 z-10 flex justify-center h-full">
           Gallary
         </div>
         <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
-      </div>}
+        <div>
+          {/* Your gallery preview components here */}
 
-
+          <div className="viewMore mt-4 flex justify-center">
+            <button
+              type="button"
+              onClick={() => navigate('/gallery')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md"
+            >
+              View more
+            </button>
+          </div>
+        </div>
+      </div>
+      
       {/* Destination Sections */}
-
 
       <DestinationCarousel
         title="International Destinations"
