@@ -7,7 +7,7 @@ import {
   Texture,
   Transform,
 } from "ogl";
-import { useEffect, useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 function debounce(func, wait) {
   let timeout;
@@ -18,7 +18,9 @@ function debounce(func, wait) {
 }
 
 function lerp(p1, p2, t) {
-  return p1 + (p2 - p1) * t;
+  const delta = p2 - p1;
+  const velocity = delta * t;
+  return Math.abs(velocity) < 0.001 ? p2 : p1 + velocity;
 }
 
 function autoBind(instance) {
@@ -170,7 +172,7 @@ class Media {
         void main() {
           vUv = uv;
           vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
+          // p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * 0.1; 
           gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
         }
       `,
@@ -362,54 +364,49 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`,
-        text: "Bridge",
+        image: "https://i.postimg.cc/5yhSWKDg/IMG-9826-01-01.webp",
+        text: "Shimla",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
-        text: "Desk Setup",
+        image: "https://i.postimg.cc/tTmz245L/IMG-9694-01.webp",
+        text: "Manali",
       },
       {
-        image: `https://picsum.photos/seed/3/800/600?grayscale`,
-        text: "Waterfall",
+        image: "https://i.postimg.cc/hvz1wRZh/IMG-9958-01.webp",
+        text: "Kasol",
       },
       {
-        image: `https://picsum.photos/seed/4/800/600?grayscale`,
-        text: "Strawberries",
+        image: "https://i.postimg.cc/xCdRvzKv/IMG-9723-01.webp",
+        text: "Jibhi",
       },
       {
-        image: `https://picsum.photos/seed/5/800/600?grayscale`,
-        text: "Deep Diving",
+        image: "https://i.postimg.cc/R0ddJRnC/IMG-9042-01.webp",
+        text: "Dharamshala",
       },
       {
-        image: `https://picsum.photos/seed/16/800/600?grayscale`,
-        text: "Train Track",
+        image: "https://i.postimg.cc/v8NPv32c/IMG-3605.webp",
+        text: "Haridwar",
       },
       {
-        image: `https://picsum.photos/seed/17/800/600?grayscale`,
-        text: "Santorini",
+        image: "https://i.postimg.cc/Dy4xpLR5/IMG-3724.webp",
+        text: "Rishikesh",
       },
       {
-        image: `https://picsum.photos/seed/8/800/600?grayscale`,
-        text: "Blurry Lights",
+        image: "https://i.postimg.cc/hGcMGwv3/IMG-3557.webp",
+        text: "Mussoorie",
       },
       {
-        image: `https://picsum.photos/seed/9/800/600?grayscale`,
-        text: "New York",
+        image: "https://i.postimg.cc/0ygcTrsv/GOPR0827.webp",
+        text: "Auli",
       },
       {
-        image: `https://picsum.photos/seed/10/800/600?grayscale`,
-        text: "Good Boy",
-      },
-      {
-        image: `https://picsum.photos/seed/21/800/600?grayscale`,
-        text: "Coastline",
-      },
-      {
-        image: `https://picsum.photos/seed/12/800/600?grayscale`,
-        text: "Palm Trees",
+        image:
+          "https://i.postimg.cc/1X2J53Vp/IMG-20180401-073448-01-01-01.webp",
+        text: "Nainital",
       },
     ];
+
+
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
@@ -537,6 +534,7 @@ export default function CircularGallery({
   scrollSpeed = 2,
   scrollEase = 0.05,
 }) {
+  const appRef = useRef(null);
   const containerRef = useRef(null);
   useEffect(() => {
     const app = new App(containerRef.current, {
@@ -548,14 +546,25 @@ export default function CircularGallery({
       scrollSpeed,
       scrollEase,
     });
+    appRef.current = app;
     return () => {
       app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
   return (
-    <div
-      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
-      ref={containerRef}
-    />
+    <div className="w-full h-full overflow-hidden relative" ref={containerRef}>
+      <button
+        className="absolute top-1/2 left-4 z-10 bg-black/50 text-white px-3 py-2 rounded-full transform -translate-y-1/2"
+        onClick={() => appRef.current?.scrollBy(-1)}
+      >
+        &#8249;
+      </button>
+      <button
+        className="absolute top-1/2 right-4 z-10 bg-black/50 text-white px-3 py-2 rounded-full transform -translate-y-1/2"
+        onClick={() => appRef.current?.scrollBy(1)}
+      >
+        &#8250;
+      </button>
+    </div>
   );
 }
