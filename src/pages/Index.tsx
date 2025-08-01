@@ -121,15 +121,6 @@ const Index = () => {
         destinations={RELIGIOUSDESTINATION}
         navigateTo="/domestic"
       />
-      <div className="relative top-10 flex justify-center items-center z-10">
-        <h2 className="text-4xl font-bold text-gray-800">Gallery</h2>
-      </div>
-      <div style={{ height: '600px', position: 'relative' }}>
-        <CircularGallery bend={0} textColor="#" borderRadius={0.05} scrollEase={0.02} />
-      </div>
-
-
-
       <VideoTestimonials />
       <FanbookTestimonials />
       <InstagramHighlights />
