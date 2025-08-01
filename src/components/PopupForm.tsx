@@ -33,7 +33,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ open, setOpen }) => {
     e.preventDefault();
     const finalDestination = destination === "Other" ? customDestination : destination;
     const message = `Name: ${name}\nPhone: ${phone}\nDestination: ${finalDestination}`;
-    const whatsappURL = `https://wa.me/917275223319?text=${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/917909674407?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
 
     setShowThankYou(true);
@@ -76,7 +76,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ open, setOpen }) => {
                   🌍 Book Now & Unlock up to 75% Off!
                 </h2>
                 <p className="text-center text-gray-600 text-sm mb-6">
-                  Exclusive deals, custom itineraries, and wild adventures with Himalayan Ape!
+                  Scrolling is fun, Travelling is better with Himalayan Ape!
                 </p>
 
                 <div>
@@ -150,7 +150,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ open, setOpen }) => {
             className="hidden sm:block w-1/2 bg-cover bg-center"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80')",
+                "url('https://static.vecteezy.com/system/resources/previews/008/063/100/non_2x/rear-view-portrait-of-young-man-traveler-with-backpack-standing-on-a-mountain-with-arms-spread-open-travel-life-style-and-adventure-concept-free-photo.jpg')",
             }}
           />
         </Dialog.Panel>
